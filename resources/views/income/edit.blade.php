@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-@extends('sidebar.usermanagement')
+@extends('sidebar.income2page')
 @endsection
 @section('content')
 <div id="main">
@@ -15,7 +15,7 @@
         }
 
     </style>
-    
+
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
             <i class="bi bi-justify fs-3"></i>
@@ -42,21 +42,21 @@
                     </nav>
                 </div>
             </div>
-        </div> 
-       
+        </div>
+
         <head>
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"/> -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-  <link rel="stylesheet" href="<?php echo asset('css/SelectBox.css')?>" type="text/css"> 
-  
-  
+  <link rel="stylesheet" href="<?php echo asset('css/SelectBox.css')?>" type="text/css">
+
+
 </head>
     <form action="{{ route('incomes.update',$Income->id) }}" method="POST">
         @csrf
         @method('PUT')
-   
+
     <div class="col-12">
         <div class="card">
             <div class="card-header">
@@ -78,7 +78,7 @@
                                         </div>
                                     </div>
                                 </div>
-         
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Description:</strong>
@@ -92,14 +92,14 @@
                 </div>
             </div>
             <script type="text/javascript">
-                $('.date').datepicker({  
+                $('.date').datepicker({
                 format: 'dd-mm-yyyy'
-                });  
-            </script> 
+                });
+            </script>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
-   
+
     </form>
 @endsection

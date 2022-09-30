@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-@extends('sidebar.usermanagement')
+@extends('sidebar.income2page')
 @endsection
 @section('content')
 
@@ -16,7 +16,7 @@
         }
 
     </style>
-    
+
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
             <i class="bi bi-justify fs-3"></i>
@@ -43,7 +43,7 @@
                     </nav>
                 </div>
             </div>
-        </div> 
+        </div>
 
 
 @section('content')
@@ -53,9 +53,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-  <link rel="stylesheet" href="<?php echo asset('css/SelectBox.css')?>" type="text/css"> 
-  
-  
+  <link rel="stylesheet" href="<?php echo asset('css/SelectBox.css')?>" type="text/css">
+
+
 </head>
 
 <div class="row">
@@ -68,7 +68,7 @@
         </div>
     </div>
 </div>
-   
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -79,15 +79,21 @@
         </ul>
     </div>
 @endif
-   
+
 <form action="{{ route('income1.store') }}" method="POST">
     @csrf
-  
+
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong>
-                <input type="text" name="name" class="form-control" placeholder="Enter name">
+                {{-- <input type="text"  name="name" class="form-control" placeholder="Enter name"> --}}
+                <select id="pickdate" class="form-select" name="name" >
+                    <option value="1">มกราคม</option>
+                    <option value="2">กุมพาพันธ์</option>
+                    <option value="8">สิงหาคม</option>
+                    <option value="9">กันยายน</option>
+                  </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -96,28 +102,51 @@
 		            <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
 		        </div>
 		    </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12" hidden>
 		        <div class="form-group">
                 <strong>Date:</strong>
-                    <input class="date form-control" name="date" type="text" placeholder="Date">
+                    <input class="date form-control" name="date" type="text" id="date" placeholder="Date" >
                 </div>
             </div>
             <script type="text/javascript">
-                $('.date').datepicker({  
-                format: 'dd-mm-yyyy'
-                });  
-            </script> 
-             <div class="col-xs-12 col-sm-12 col-md-12">
+            const result = dt.toLocaleDateString('th-TH', {
+                    month: 'numeric'
+                })
+
+                // $('.date').datepicker({
+                // format: '01-mm-yyyy'
+                // });
+                document.getElementById("pickdate").value =result;
+
+
+                 let raw_pickdate =document.getElementById("pickdate").value;
+                 let pickdate;
+                 if((raw_pickdate).length<2){
+                    pickdate = '0'+ raw_pickdate;
+                 }else{
+                    pickdate =raw_pickdate;
+                 }
+
+                 function sentEvent(){
+                let ho= '01-'+pickdate+'-'+dt.getFullYear();
+                 document.getElementById("date").value = ho;
+
+                 console.log(ho);
+                 }
+
+
+            </script>
+             <div class="col-xs-12 col-sm-12 col-md-12" hidden>
 		        <div class="form-group">
 		            <strong>id_income01_lists:</strong>
 		            <input type="number" name="id_income01_lists" class="form-control" value={{$id}}>
 		        </div>
 		    </div>
-		   
+
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" onclick="sentEvent()">Submit</button>
         </div>
     </div>
-   
+
 </form>
 @endsection

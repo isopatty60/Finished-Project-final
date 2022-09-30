@@ -50,16 +50,16 @@
                         <span>เปลี่ยนรหัสผ่าน</span>
                     </a>
                 </li>
-                
+
                 @if (Auth::user()->role_name=='Admin')
                     <li class="sidebar-title">เพจ &amp; คอนโทรลเลอร์</li>
-                    <li class="sidebar-item  has-sub active">
+                    <li class="sidebar-item  has-sub ">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-hexagon-fill"></i>
                             <span>การบำรุงรักษา</span>
                         </a>
-                        <ul class="submenu active">
-                            <li class="submenu-item active">
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
                                 <a href="{{ route('userManagement') }}">การควบคุมผู้ใช้</a>
                             </li>
                             <li class="submenu-item">
@@ -74,24 +74,24 @@
                             <!-- <li class="submenu-item">
                                 <a href="{{ route('activity/login/logout') }}">บันทึกกิจกรรม</a>
                             </li> -->
-                            
+
                         </ul>
                     </li>
                 @endif
-                
+
                 @if (Auth::user()->role_name=='Admin')
                     <li class="sidebar-title">จัดการ &amp; ระบบ </li>
-                    <li class="sidebar-item  has-sub">
+                    <li class="sidebar-item  has-sub active">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-hexagon-fill"></i>
                             <span>รายรับ-จ่าย</span>
                         </a>
-                        <ul class="submenu">
+                        <ul class="submenu active">
                             <li class="submenu-item">
                                 <a href="/posts">ใบเสร็จรับเงิน</a>
                             </li>
-                            
-                            <li class="submenu-item">
+
+                            <li class="submenu-item active">
                             <a href="/income2page">รายรับ-จ่าย</a>
                             </li>
                             <!-- <li class="submenu-item">
@@ -115,7 +115,7 @@
                             <li class="submenu-item">
                                 <a href="/posts">ใบเสร็จรับเงิน</a>
                             </li>
-                            
+
                             <li class="submenu-item">
                             <a href="/income2page">รายรับ-จ่าย</a>
                             </li>

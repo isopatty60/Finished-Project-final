@@ -44,7 +44,7 @@
                     </div>
                 </li>
 
-                
+
 
                 <li class="sidebar-item">
                     <a href="{{ route('change/password') }}" class='sidebar-link'>
@@ -88,16 +88,20 @@
                             <li class="submenu-item">
                                 <a href="/posts">ใบเสร็จรับเงิน</a>
                             </li>
-                            
+
                             <li class="submenu-item">
                             <a href="/income2page">รายรับ-จ่าย</a>
                             </li>
-                            <li class="submenu-item">
+                            <!--
+<li class="submenu-item">
                                 <a href="{{ route('register') }}">ลงทะเบียนผู้ใช้</a>
                             </li>
                             <li class="submenu-item">
                                 <a href="{{ route('activity/login/logout') }}">บันทึกกิจกรรม</a>
                             </li>
+                            -->
+
+
                         </ul>
                     </li>
                 @endif
@@ -113,7 +117,7 @@
                             <li class="submenu-item">
                                 <a href="/posts">ใบเสร็จรับเงิน</a>
                             </li>
-                            
+
                             <li class="submenu-item">
                             <a href="/income2page">รายรับ-จ่าย</a>
                             </li>
@@ -126,8 +130,8 @@
                         </ul>
                     </li>
                 @endif
-                
-                
+
+
                 <li class="sidebar-title">ตาราง &amp; แบบฟอร์ม</li>
                 <!-- <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>

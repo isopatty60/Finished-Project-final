@@ -125,7 +125,7 @@ Route::put('update_income1/{id}', [Income1Controller::class, 'update'])->name('u
 // ----------------------------- form income2page ------------------------------//
 Route::resource('income2page', Income2pageController::class)->middleware('auth');
 Route::get('students/records', [Income2pageController::class, 'records'])->name('students/records');
-    
+
 // ----------------------------- form Income2 ------------------------------//
 Route::resource('income2', Income2Controller::class)->middleware('auth');
 Route::get('/income2/create/{id}', [Income2Controller::class , 'create002'])->name('create002')->middleware('auth');
