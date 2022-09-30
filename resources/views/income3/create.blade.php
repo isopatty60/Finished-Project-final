@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('menu')
-@extends('sidebar.usermanagement')
+@extends('sidebar.income2page')
+
 @endsection
 @section('content')
 
@@ -16,7 +17,7 @@
         }
 
     </style>
-    
+
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
             <i class="bi bi-justify fs-3"></i>
@@ -38,7 +39,7 @@
                     </nav>
                 </div>
             </div>
-        </div> 
+        </div>
 
 
 @section('content')
@@ -48,9 +49,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-  <link rel="stylesheet" href="<?php echo asset('css/SelectBox.css')?>" type="text/css"> 
-  
-  
+  <link rel="stylesheet" href="<?php echo asset('css/SelectBox.css')?>" type="text/css">
+
+
 </head>
 
 <div class="row">
@@ -63,7 +64,7 @@
         </div>
     </div>
 </div>
-   
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -74,10 +75,10 @@
         </ul>
     </div>
 @endif
-   
+
 <form action="{{ route('income3.store') }}" method="POST"  enctype='multipart/form-data'>
     @csrf
-  
+
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -104,10 +105,10 @@
                 </div>
             </div>
             <script type="text/javascript">
-                $('.date').datepicker({  
+                $('.date').datepicker({
                 format: 'dd-mm-yyyy'
-                });  
-            </script> 
+                });
+            </script>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
@@ -115,7 +116,7 @@
                     <input type="file" name="image_product" class="form-control" placeholder="image_product" enctype='multipart/form-data'>
                 </div>
             </div>
-            
+
             <div class="col-xs-12 col-sm-12 col-md-12">
             <strong>Note:</strong>
                 <div class="select">
@@ -127,18 +128,18 @@
                     </div>
                 </div>
             </div>
-            
+
              <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>id_income01_lists:</strong>
 		            <input type="number" name="id_income03_lists" class="form-control" value={{$id}}>
 		        </div>
 		    </div>
-		   
+
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </div>
-   
+
 </form>
 @endsection

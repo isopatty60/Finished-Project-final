@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-@extends('sidebar.usermanagement')
+@extends('sidebar.income2page')
 @endsection
 @section('content')
 
@@ -16,7 +16,7 @@
         }
 
     </style>
-    
+
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
             <i class="bi bi-justify fs-3"></i>
@@ -38,8 +38,8 @@
                     </nav>
                 </div>
             </div>
-        </div> 
-  
+        </div>
+
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -51,7 +51,7 @@
             </div>
         </div>
     </div>
-   
+
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">

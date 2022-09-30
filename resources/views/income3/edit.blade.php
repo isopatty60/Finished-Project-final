@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-@extends('sidebar.usermanagement')
+@extends('sidebar.income2page')
 @endsection
 @section('content')
 
@@ -23,7 +23,7 @@
         }
 
     </style>
-    
+
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
             <i class="bi bi-justify fs-3"></i>
@@ -45,7 +45,7 @@
                     </nav>
                 </div>
             </div>
-        </div> 
+        </div>
 
         <div class="row">
     <div class="col-lg-12 margin-tb">
@@ -57,11 +57,11 @@
         </div>
     </div>
 </div>
-  
+
     <form action="{{ route('update_income3' ,$income3->id) }}" method="POST" enctype='multipart/form-data'>
         @csrf
         @method('PUT')
-   
+
     <div class="col-12">
         <div class="card">
             <div class="card-header">
@@ -69,7 +69,7 @@
             </div>
                 <div class="card-content">
                     <div class="card-body">
-        
+
             <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Name:</strong>
@@ -95,10 +95,10 @@
                 </div>
             </div>
             <script type="text/javascript">
-                $('.date').datepicker({  
+                $('.date').datepicker({
                 format: 'dd-mm-yyyy'
-                });  
-            </script> 
+                });
+            </script>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Note:</strong>
@@ -118,11 +118,11 @@
                     <img src="/image_product/{{ $income3->image_product }}" width="300px">
                 </div>
             </div>
-            
+
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
-   
+
     </form>
 @endsection

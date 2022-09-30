@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-@extends('sidebar.usermanagement')
+@extends('sidebar.income2page')
 @endsection
 @section('content')
 
@@ -23,7 +23,7 @@
         }
 
     </style>
-    
+
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
             <i class="bi bi-justify fs-3"></i>
@@ -50,8 +50,8 @@
                     </nav>
                 </div>
             </div>
-        </div> 
-       
+        </div>
+
         <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
@@ -65,7 +65,7 @@
     <form action="{{ route('update_income1' ,$income1->id) }}" method="POST">
         @csrf
         @method('PUT')
-   
+
     <div class="col-12">
         <div class="card">
             <div class="card-header">
@@ -73,11 +73,11 @@
             </div>
                 <div class="card-content">
                     <div class="card-body">
-        
+
             <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Name:</strong>
-		            <input type="text" name="name" value="{{ $income1->name }}" class="form-control" placeholder="Name">
+		            <input disabled type="text" name="name" value="{{ $income1->name }}" class="form-control" placeholder="Name">
 		        </div>
 		    </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -86,18 +86,18 @@
                     <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $income1->detail }}</textarea>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12" hidden>
                 <div class="form-group">
                 <strong>Date:</strong>
                     <input value="{{ $income1->date }}" class="date form-control" name="date" type="text" placeholder="Date">
                 </div>
             </div>
             <script type="text/javascript">
-                $('.date').datepicker({  
+                $('.date').datepicker({
                 format: 'dd-mm-yyyy'
-                });  
-            </script> 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+                });
+            </script>
+            <div class="col-xs-12 col-sm-12 col-md-12" hidden>
 		        <div class="form-group">
 		            <strong>id_income_lists:</strong>
 		            <textarea class="form-control" style="height:150px" name="id_income01_lists" placeholder="id_income01_lists">{{ $income1->id_income01_lists }}</textarea>
@@ -107,6 +107,6 @@
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
-   
+
     </form>
 @endsection

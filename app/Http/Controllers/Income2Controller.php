@@ -18,7 +18,7 @@ class Income2Controller extends Controller
     public function index()
     {
         $income2s = Income2::latest()->paginate();
-    
+
         return view('income2.index',compact('income2s'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -28,8 +28,8 @@ class Income2Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
-    
+
+
      public function create()
     {
         return view('income2.create');
@@ -58,14 +58,14 @@ class Income2Controller extends Controller
             'id_income02_lists' => 'required',
         ]);
 
-        
+
         Income2::create($request->all());
 
         return redirect('/income2/'.$request->id_income02_lists)
                     ->with('success',' create successfully');
-    
+
         // Income2::create($request->all());
-     
+
         // return redirect()->route('incomes.index')
         //                 ->with('success','Income2 created successfully.');
     }
@@ -111,16 +111,16 @@ class Income2Controller extends Controller
             'name' => 'required',
             'detail' => 'required',
             'date' => 'required',
-            
+
         ]);
-    
+
         income2::find($id)->update($request->all());
-        $inv = income2::find($id); 
-                        
+        $inv = income2::find($id);
+
         return redirect('/income2/'.$inv->id_income02_lists);
 
         // $Income2->update($request->all());
-    
+
         // return redirect()->route('incomes.index')
         //                 ->with('success','Post updated successfully');
     }
@@ -134,7 +134,7 @@ class Income2Controller extends Controller
 
 
     public function destroy($id)
-    
+
     {
         Income2::find($id)->delete();
         // return response()->json($id);
