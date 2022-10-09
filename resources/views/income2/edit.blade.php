@@ -103,7 +103,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>price:</strong>
-                    <input value="{{ $income2->price }}" class="date form-control" name="price"  type="number" placeholder="Date">
+                    <input value="{{ $income2->price }}" step="0.01" class="date form-control" name="price"  type="number" placeholder="Date">
                 </div>
             </div>
 
