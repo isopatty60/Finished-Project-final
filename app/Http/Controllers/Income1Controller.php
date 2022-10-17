@@ -17,7 +17,7 @@ class Income1Controller extends Controller
     public function index()
     {
         $income1s = Income1::latest()->paginate();
-    
+
         return view('income1.index',compact('income1s'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -28,8 +28,8 @@ class Income1Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
-    
+
+
      public function create()
     {
         return view('income1.create');
@@ -58,14 +58,14 @@ class Income1Controller extends Controller
             'id_income01_lists' => 'required',
         ]);
 
-        
+
         Income1::create($request->all());
 
         return redirect('/income1/'.$request->id_income01_lists)
                     ->with('success',' create successfully');
-    
+
         // Income1::create($request->all());
-     
+
         // return redirect()->route('incomes.index')
         //                 ->with('success','Income1 created successfully.');
     }
@@ -114,14 +114,14 @@ class Income1Controller extends Controller
             'date' => 'required',
             'id_income01_lists' => 'required',
         ]);
-    
+
         income1::find($id)->update($request->all());
-        $inv = income1::find($id); 
-                        
+        $inv = income1::find($id);
+
         return redirect('/income1/'.$inv->id_income01_lists);
 
         // $Income1->update($request->all());
-    
+
         // return redirect()->route('incomes.index')
         //                 ->with('success','Post updated successfully');
     }
@@ -135,7 +135,7 @@ class Income1Controller extends Controller
 
 
     public function destroy($id)
-    
+
     {
         Income1::find($id)->delete();
         return back()->with('success','Product_subdata deleted successfully');

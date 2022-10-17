@@ -17,6 +17,7 @@
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
                 <h2>รายการ {{$income3Name->name}}</h2>
+
                     <p class="text-subtitle text-muted">For Receipt to check they list</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
@@ -37,6 +38,8 @@
                 <div class="card-header">
                 <a class="btn btn-success" href="{{route('create003',['id'=>$id])}}"> เพิ่มรายการ</a>
                 <a href="/pdfIncome3/{{$id}} ?>" target="_blank"  class="btn btn-success" > <span>Report</span></a>
+                {{-- <a href="/income2/{{$income3Name->id_income03_lists}}"  class="btn btn-success" > <span>BACK</span></a> --}}
+
                 </div>
 
 

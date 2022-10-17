@@ -95,7 +95,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Price:</strong>
-                    <input type="number" name="price" class="form-control" placeholder="Price">
+                    <input type="number" name="price" class="form-control" placeholder="Price" step="0.01">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -129,7 +129,7 @@
                 </div>
             </div>
 
-             <div class="col-xs-12 col-sm-12 col-md-12">
+             <div class="col-xs-12 col-sm-12 col-md-12" hidden>
 		        <div class="form-group">
 		            <strong>id_income01_lists:</strong>
 		            <input type="number" name="id_income03_lists" class="form-control" value={{$id}}>
