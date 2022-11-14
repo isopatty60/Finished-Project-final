@@ -63,20 +63,20 @@
                                         <td hidden>
                                             <input value="{{ $value->name }}" id="valueIncome1" name="valueIncome1" >
                                         </td>
-                                        <td>
+                                        {{-- <td>
                                             <a id="valueIncome2" name="valueIncome2"></a>
 
-                                        </td>
-                                        {{-- <td><a href="{{ route('income2.show', $value->id) }}"
-                                                class="inster">{{ $value->name }}</a></td> --}}
+                                        </td> --}}
+                                        <td><a href="{{ route('income2.show', $value->id) }}"
+                                                class="inster" id="valueIncome2" name="valueIncome2"></a></td>
                                         <td>{{ \Str::limit($value->detail, 100) }}</td>
                                         <td>{{ $value->date }}</td>
                                         <td>
-                                            <form action="{{ route('income1.destroy', $value->id) }}" method="POST">
-                                                <!-- <a class="btn btn-info" href="{{ route('income1.show', $value->id) }}"><i class="bi bi-eye"></i></a>     -->
-                                                <a class="btn btn-primary"
+                                            <a class="btn btn-primary"
                                                     href="{{ route('income1.edit', $value->id) }}"><i
                                                         class="bi bi-pencil-square"></i></a>
+                                            <form action="{{ route('income1.destroy', $value->id) }}" >
+                                                <!-- <a class="btn btn-info" href="{{ route('income1.show', $value->id) }}"><i class="bi bi-eye"></i></a>     -->
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"
@@ -87,7 +87,37 @@
                                         </td>
 
                                     </tr>
+                                    <script type= text/javascript>
+                                        var monthNames = [
+                                            "-", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน",
+                                            "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม.",
+                                            "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
+                                        ];
 
+                                        // var result = monthNames[{{ $value->name }}];
+                                        // var value = document.getElementById("valueIncome1").value;
+                                        // document.getElementById("valueIncome2").value = monthNames[ value ];
+
+
+                                        var formM = document.getElementsByName("form");
+                                        var text = "";
+                                        var i;
+
+                                        var jo =  document.getElementsByName("valueIncome1");
+                                        if( jo.length != 0){
+                                            for (i = 0; i < jo.length; i++) {
+                                            text = monthNames[jo[i].value] ;
+                                            document.getElementsByName("valueIncome2")[i].innerHTML = text;
+
+                                        }
+
+                                        }else{
+                                        document.getElementsByName("valueIncome2").innerHTML ='';
+
+                                        }
+
+
+                                    </script>
                             </form>
 
                             @endforeach
@@ -109,31 +139,6 @@
                     </div>
 
                     {!! $income1->links() !!}
-                    <script >
-                        let monthNames = [
-                            "-", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน",
-                            "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม.",
-                            "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
-                        ];
 
-                        // var result = monthNames[{{ $value->name }}];
-                        // var value = document.getElementById("valueIncome1").value;
-                        // document.getElementById("valueIncome2").value = monthNames[ value ];
-
-
-                        var formM = document.getElementsByName("form");
-                        var text = "";
-                        var i;
-
-                        var jo =  document.getElementsByName("valueIncome1");
-                        for (i = 0; i < jo.length; i++) {
-                            text = monthNames[jo[i].value] ;
-                            document.getElementsByName("valueIncome2")[i].innerHTML = text;
-
-                        }
-                        // document.getElementsByTagName("p")[0].innerHTML = "Hello World!";
-                        // console.log( document.getElementsByName("valueIncome2") );
-
-                    </script>
 
                 @endsection

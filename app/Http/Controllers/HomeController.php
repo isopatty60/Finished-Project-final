@@ -28,6 +28,22 @@ class HomeController extends Controller
         $users = DB::table('users')->count();
         $user_activity_logs = DB::table('user_activity_logs')->count();
         $activity_logs = DB::table('activity_logs')->count();
-        return view('home',compact('staff','users','user_activity_logs','activity_logs'));
+        return view('home', compact('staff', 'users', 'user_activity_logs', 'activity_logs'));
+    }
+    public function deshboard()
+    {
+        $Qury = DB::table('income2s')
+             ->selectRaw('id_income02_lists,note ,SUM(price) as result')
+            ->groupBy(['id_income02_lists','note'])
+            ->orderByDesc('id_income02_lists')
+            ->limit(24)
+            ->get()
+             ->groupBy(['id_income02_lists','note'])
+            // ->orderBy('id_income02_lists','desc')
+
+        ;
+        // ->groupBy(['id_income02_lists', 'note']);
+
+        return $Qury;
     }
 }
