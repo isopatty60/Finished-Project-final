@@ -110,7 +110,7 @@ Route::put('fiscal_years/update/{id}', [invFiscalYearsController::class, 'update
 
 // ----------------------------- form InvFiscalYearsExpenses ------------------------------//
 Route::resource('invFiscalYearExpenses', invFiscalYearExpensesController::class)->middleware('auth');
-Route::put('invFiscalYearExpenses/update/{id}', [invFiscalYearExpensesController::class, 'fiscalYearsExpenses'])->name('fiscalYearsExpenses.update')->middleware('auth');
+Route::put('invFiscalYearExpenses/update/{id}', [invFiscalYearExpensesController::class, 'update'])->name('fiscalYearExpenses.update')->middleware('auth');
 
 // ----------------------------- form InvMonths ------------------------------//
 Route::resource('InvMonths', InvMonthsController::class)->middleware('auth');

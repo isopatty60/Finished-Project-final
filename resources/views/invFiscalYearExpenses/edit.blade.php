@@ -46,7 +46,7 @@
                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
             </head>
-            <form action="{{ route('fiscalYearsExpenses.update', $fiscalYearsExpenses->id) }}">
+            <form action="{{ route('fiscalYearExpenses.update', $invFiscalYearExpenses->id) }}">
                 @csrf
                 @method('PUT')
                 <div class="col-12">
@@ -59,14 +59,14 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>ชื่อ:</strong>
-                                        <input type="text" name="title" value="{{ $fiscalYearsExpenses->title }}"
+                                        <input type="text" name="title" value="{{ $invFiscalYearExpenses->title }}"
                                             class="form-control" placeholder="Name">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Description:</strong>
-                                        <textarea class="form-control" style="height:150px" name="description" placeholder="Detail">{{ $fiscalYearsExpenses->description }}</textarea>
+                                        <textarea class="form-control" style="height:150px" name="description" placeholder="Detail">{{ $invFiscalYearExpenses->description }}</textarea>
                                     </div>
                                 </div>
                                 {{-- <div class="col-xs-12 col-sm-12 col-md-12">

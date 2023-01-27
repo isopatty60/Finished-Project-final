@@ -58,7 +58,8 @@
                 </div>
             </div>
 
-            <form action="{{ route('update_invItems', $invItems->id) }}" method="POST" enctype='multipart/form-data'>
+            <form action="{{ route('updateInvItemExpenses', $invItemExpenses->id) }}" method="POST"
+                enctype='multipart/form-data'>
                 @csrf
                 @method('PUT')
 
@@ -71,28 +72,28 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>ชื่อ:</strong>
-                                        <input type="text" name="name" value="{{ $invItems->name }}"
+                                        <input type="text" name="name" value="{{ $invItemExpenses->name }}"
                                             class="form-control" placeholder="ชื่อ">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>รายละเอียด:</strong>
-                                        <textarea value="{{ $invItems->detail }}" class="form-control" style="height:150px" name="detail"
-                                            placeholder="รายละเอียด">{{ $invItems->detail }}</textarea>
+                                        <textarea value="{{ $invItemExpenses->detail }}" class="form-control" style="height:150px" name="detail"
+                                            placeholder="รายละเอียด">{{ $invItemExpenses->detail }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>ราคา:</strong>
-                                        <input type="text" name="price" value="{{ $invItems->price }}"
+                                        <input type="text" name="price" value="{{ $invItemExpenses->price }}"
                                             class="form-control" placeholder="ราคา">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>วันที่:</strong>
-                                        <input value="{{ $invItems->date }}" class="date form-control" name="date"
+                                        <input value="{{ $invItemExpenses->date }}" class="date form-control" name="date"
                                             type="text" placeholder="วันที่">
                                     </div>
                                 </div>
@@ -105,8 +106,8 @@
                                     <div class="form-group">
                                         <strong>หมายเหตุ:</strong>
                                         <div class="select">
-                                            <select name="note" value="{{ $invItems->note }}" class="form-select">
-                                                <option selected disabled>{{ $invItems->note }}</option>
+                                            <select name="note" value="{{ $invItemExpenses->note }}" class="form-select">
+                                                <option selected disabled>{{ $invItemExpenses->note }}</option>
                                                 <option value="รายรับ">รายรับ</option>
                                                 <option value="รายจ่าย">รายจ่าย</option>
                                             </select>
@@ -118,7 +119,7 @@
                                             <strong>รูปภาพ:</strong>
                                             <input type="file" name="image_product" class="form-control"
                                                 placeholder="รูปภาพ" enctype='multipart/form-data'>
-                                            <img src="/image_product/{{ $invItems->image_product }}" width="300px">
+                                            <img src="/image_product/{{ $invItemExpenses->image_product }}" width="300px">
                                         </div>
                                     </div>
 

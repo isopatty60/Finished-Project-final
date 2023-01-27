@@ -39,9 +39,9 @@ class invFiscalYearExpensesController extends Controller
         return view('invFiscalYearExpenses.show', compact('invFiscalYearExpenses'));
     }
 
-    public function edit($fiscalYearsExpenses)
+    public function edit(invFiscalYearExpenses $invFiscalYearExpenses)
     {
-        return view('invFiscalYearExpenses.edit', compact('fiscalYearsExpenses'));
+        return view('invFiscalYearExpenses.edit', compact('invFiscalYearExpenses'));
     }
 
     public function update(Request $request, $id)

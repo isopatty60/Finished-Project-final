@@ -38,7 +38,7 @@
                             เพิ่มรายการ</a>
                         <a href="/pdfInvItems/{{ $id }} ?>" target="_blank" class="btn btn-success">
                             <span>รายงาน</span></a>
-                        <a href="/invDetails/{{ $invDetailsName->Month_id }}" class="btn btn-success">
+                        <a href="/invDetailExpenses/{{ $invDetailsName->month_expenses_id }}" class="btn btn-success">
                             <span>กลับ</span></a>
                     </div>
                     <div class="card-body">
@@ -69,9 +69,10 @@
                                     <td>{{ number_format($value->price, 2) }} </td>
                                     <td>{{ $value->note }}</td>
                                     <td>
-                                        <form action="{{ route('invItems.destroy', $value->id) }}" method="POST">
-                                            <!-- <a class="btn btn-info" href="{{ route('invItems.show', $value->id) }}"><i class="bi bi-eye"></i></a>     -->
-                                            <a class="btn btn-primary" href="{{ route('invItems.edit', $value->id) }}"><i
+                                        <form action="{{ route('invItemExpenses.destroy', $value->id) }}" method="POST">
+                                            <!-- <a class="btn btn-info" href="{{ route('invItemExpenses.show', $value->id) }}"><i class="bi bi-eye"></i></a>     -->
+                                            <a class="btn btn-primary"
+                                                href="{{ route('invItemExpenses.edit', $value->id) }}"><i
                                                     class="bi bi-pencil-square"></i></a>
                                             @csrf
                                             @method('DELETE')
