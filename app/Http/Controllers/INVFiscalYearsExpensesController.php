@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\INV_Fiscal_years_expenses;
+use App\Models\invFiscalYearsExpenses;
 use Illuminate\Http\Request;
 
 
-class INVFiscalYearsExpensesController extends Controller
+class invFiscalYearsExpensesController extends Controller
 {
     public function index()
     {
-        $INV_fiscal_years_expenses = INV_Fiscal_years_expenses::latest()->paginate();
+        $invFiscalYearsExpenses = invFiscalYearsExpenses::latest()->paginate();
 
-        return view('INV_fiscal_years_expenses.index ', compact('INV_fiscal_years_expenses'))
+        return view('invFiscalYearsExpenses.index ', compact('invFiscalYearsExpenses'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function create()
     {
-        return view('INV_fiscal_years_expenses.create');
+        return view('invFiscalYearsExpenses.create');
     }
 
     public function store(Request $request)
@@ -28,20 +28,20 @@ class INVFiscalYearsExpensesController extends Controller
             'description' => 'required',
         ]);
 
-        INV_Fiscal_years_expenses::create($request->all());
+        invFiscalYearsExpenses::create($request->all());
 
-        return redirect()->route('INV_fiscal_years_expenses.index')
-            ->with('success', 'fiscal_years created successfully.');
+        return redirect()->route('invFiscalYearsExpenses.index')
+            ->with('success', 'invFiscalYearsExpenses created successfully.');
     }
 
-    public function show(INV_Fiscal_years_expenses $INV_Fiscal_years_expenses)
+    public function show(invFiscalYearsExpenses $invFiscalYearsExpenses)
     {
-        return view('INV_fiscal_years_expenses.show', compact('INV_fiscal_years_expenses'));
+        return view('invFiscalYearsExpenses.show', compact('invFiscalYearsExpenses'));
     }
 
-    public function edit(INV_Fiscal_years_expenses $INV_fiscal_years_expenses)
+    public function edit(invFiscalYearsExpenses $invFiscalYearsExpenses)
     {
-        return view('INV_fiscal_years_expenses.edit', compact('INV_fiscal_years_expenses'));
+        return view('invFiscalYearsExpenses.edit', compact('invFiscalYearsExpenses'));
     }
 
     public function update(Request $request, $id)
@@ -51,16 +51,16 @@ class INVFiscalYearsExpensesController extends Controller
             'description' => 'required',
         ]);
 
-        INV_Fiscal_years_expenses::find($id)->update($request->all());
-        return redirect()->route('INV_fiscal_years_expenses.index')
-            ->with('success', 'fiscal_years updated successfully');
+        invFiscalYearsExpenses::find($id)->update($request->all());
+        return redirect()->route('invFiscalYearsExpenses.index')
+            ->with('success', 'invFiscalYearsExpenses updated successfully');
     }
 
-    public function destroy(INV_Fiscal_years_expenses $INV_fiscal_years_expenses)
+    public function destroy(invFiscalYearsExpenses $invFiscalYearsExpenses)
     {
-        $INV_fiscal_years_expenses->delete();
+        $invFiscalYearsExpenses->delete();
 
-        return redirect()->route('INV_fiscal_years_expenses.index')
+        return redirect()->route('invFiscalYearsExpenses.index')
             ->with('success', 'fiscal_years deleted successfully');
     }
 }
