@@ -23,10 +23,10 @@ use App\Http\Controllers\InvMonthsController;
 use App\Http\Controllers\invDetailController;
 use App\Http\Controllers\Income2pageController;
 use App\Http\Controllers\invItemsController;
-use App\Http\Controllers\invFiscalYearsExpensesController;
-use App\Http\Controllers\INVMonthsExpensesController;
-use App\Http\Controllers\INVDetailsExpensesController;
-use App\Http\Controllers\INVItemsExpensesController;
+use App\Http\Controllers\invFiscalYearExpensesController;
+use App\Http\Controllers\invMonthExpensesController;
+use App\Http\Controllers\invDetailExpensesController;
+use App\Http\Controllers\invItemExpensesController;
 
 
 Route::get('/', function () {
@@ -105,12 +105,12 @@ Route::put('update_invReceiptDetails/{id}', [invReceiptDetailsController::class,
 
 
 // ----------------------------- form InvFiscalYears ------------------------------//
-Route::resource('fiscal_years', InvFiscalYearsController::class)->middleware('auth');
-Route::GET('fiscal_years/update/{id}', [InvFiscalYearsController::class, 'update'])->name('fiscal_years.update')->middleware('auth');
+Route::resource('fiscal_years', invFiscalYearsController::class)->middleware('auth');
+Route::put('fiscal_years/update/{id}', [invFiscalYearsController::class, 'update'])->name('fiscal_years.update')->middleware('auth');
 
 // ----------------------------- form InvFiscalYearsExpenses ------------------------------//
-Route::resource('invFiscalYearsExpenses', invFiscalYearsExpensesController::class)->middleware('auth');
-Route::GET('invFiscalYearsExpenses/update/{id}', [invFiscalYearsExpensesController::class, 'fiscalYearsExpenses'])->name('fiscalYearsExpenses.update')->middleware('auth');
+Route::resource('invFiscalYearExpenses', invFiscalYearExpensesController::class)->middleware('auth');
+Route::put('invFiscalYearExpenses/update/{id}', [invFiscalYearExpensesController::class, 'fiscalYearsExpenses'])->name('fiscalYearsExpenses.update')->middleware('auth');
 
 // ----------------------------- form InvMonths ------------------------------//
 Route::resource('InvMonths', InvMonthsController::class)->middleware('auth');
@@ -119,30 +119,30 @@ Route::put('update_InvMonths/{id}', [InvMonthsController::class, 'update'])->nam
 Route::delete('/InvMonths/destroy/{id}', [InvMonthsController::class, 'destroy'])->name('InvMonths.destroy')->middleware('auth');
 
 // ----------------------------- form InvMonthsExpenses ------------------------------//
-Route::resource('InvMonths_expenses', INV_months_expenses::class)->middleware('auth');
-Route::get('/InvMonths_expenses/create/{id}', [INV_months_expenses::class, 'createInvMonthsExpenses'])->name('createInvMonthsExpenses')->middleware('auth');
-Route::put('update_InvMonths_expenses/{id}', [INV_months_expenses::class, 'updateInvMonthExpenses'])->name('updateInvMonthExpenses')->middleware('auth');
-Route::delete('/InvMonths_expenses/destroy/{id}', [INV_months_expenses::class, 'destroy'])->name('InvMonths.destroy')->middleware('auth');
+Route::resource('invMonthExpenses', invMonthExpensesController::class)->middleware('auth');
+Route::get('/invMonthExpenses/create/{id}', [invMonthExpensesController::class, 'createInvMonthsExpenses'])->name('createInvMonthsExpenses')->middleware('auth');
+Route::put('update_invMonthExpenses/{id}', [invMonthExpensesController::class, 'updateInvMonthExpenses'])->name('updateInvMonthExpenses')->middleware('auth');
+Route::delete('/invMonthExpenses/destroy/{id}', [invMonthExpensesController::class, 'destroy'])->name('InvMonths.destroy')->middleware('auth');
 
 // ----------------------------- form invDetails ------------------------------//
 Route::resource('invDetails', invDetailController::class)->middleware('auth');
 Route::get('/invDetails/create/{id}', [invDetailController::class, 'createInvDetails'])->name('createInvDetails')->middleware('auth');
 Route::put('update_invDetails/{id}', [invDetailController::class, 'update'])->name('update_invDetails')->middleware('auth');
 
-// ----------------------------- form invDetailsExpenses ------------------------------//
-Route::resource('invDetails_expenses', INVDetailsExpensesController::class)->middleware('auth');
-Route::get('/invDetails_expenses/create/{id}', [INVDetailsExpensesController::class, 'createInvDetailsExpenses'])->name('createInvDetailsExpenses')->middleware('auth');
-Route::put('update_invDetails_expenses/{id}', [INVDetailsExpensesController::class, 'updateInvDetailsExpenses'])->name('updateInvDetailsExpenses')->middleware('auth');
+// ----------------------------- form invDetails Expenses ------------------------------//
+Route::resource('invDetailExpenses', invDetailExpensesController::class)->middleware('auth');
+Route::get('/invDetailExpenses/create/{id}', [invDetailExpensesController::class, 'createInvDetailExpenses'])->name('createInvDetailExpenses')->middleware('auth');
+Route::put('updateInvDetailExpenses/{id}', [invDetailExpensesController::class, 'updateInvDetaisExpenses'])->name('updateInvDetailExpenses')->middleware('auth');
 
 // ----------------------------- form invItems Image ------------------------------//
 Route::resource('invItems', invItemsController::class)->middleware('auth');
 Route::get('/invItems/create/{id}', [invItemsController::class, 'createInvItems'])->name('createInvItems')->middleware('auth');
 Route::put('update_invItems/{id}', [invItemsController::class, 'update'])->name('update_invItems')->middleware('auth');
 
-// ----------------------------- form invItems Expenses ------------------------------//
-Route::resource('invItems_expenses', INVItemsExpensesController::class)->middleware('auth');
-Route::get('/invItems_expenses/create/{id}', [INVItemsExpensesController::class, 'createInvItems_expenses'])->name('createInvItems_expenses')->middleware('auth');
-Route::put('update_invItems_expenses/{id}', [INVItemsExpensesController::class, 'updateInvItemsExpenses'])->name('updateInvItemsExpenses')->middleware('auth');
+// ----------------------------- form invItems Image Expenses ------------------------------//
+Route::resource('invItemExpenses', invItemExpensesController::class)->middleware('auth');
+Route::get('/invItemExpenses/create/{id}', [invItemExpensesController::class, 'createInvItemExpenses'])->name('createInvItemExpenses')->middleware('auth');
+Route::put('updateInvItemExpenses/{id}', [invItemExpensesController::class, 'updateInvItemExpenses'])->name('updateInvItemExpenses')->middleware('auth');
 
 // ----------------------------- form pdfdata ------------------------------//
 Route::get('/pdf/{id}', [PDFController::class, 'pdf'])->middleware('auth');

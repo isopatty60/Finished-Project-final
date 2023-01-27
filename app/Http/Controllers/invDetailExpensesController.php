@@ -17,7 +17,7 @@ class invDetailExpensesController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
-    public function createInvDetailsExpenses($id)
+    public function createInvDetailExpenses($id)
     {
         //return response()->json($id);
         return view('invDetailExpenses.create', compact('id'));

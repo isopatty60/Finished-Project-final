@@ -39,7 +39,7 @@
             <section class="section">
                 <div class="card">
                     <div class="card-header">
-                        <a class="btn btn-success" href="{{ route('createInvDetailsExpenses', ['id' => $id]) }}">
+                        <a class="btn btn-success" href="{{ route('createInvDetailExpenses', ['id' => $id]) }}">
                             เพิ่มรายการ</a>
                         <a href="/pdfInvDetails/{{ $id }} ?>" target="_blank" class="btn btn-success">
                             <span>รายงาน</span></a>
@@ -69,7 +69,7 @@
                                 @endphp
                                 <tr>
                                     <td>{{ ++$i }}</td>
-                                    <td><a href="{{ route('invItems.show', $value->id) }}"
+                                    <td><a href="{{ route('invItemExpenses.show', $value->id) }}"
                                             class="inster">{{ $value->name }}</a></td>
                                     <td>{{ \Str::limit($value->detail, 100) }}</td>
                                     <td>{{ $value->date }}</td>
