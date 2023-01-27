@@ -104,7 +104,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
@@ -115,120 +115,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        {{-- <div class="col-12 col-xl-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Profile Visit</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-center">
-                                            <svg class="bi text-primary" width="32" height="32" fill="blue"
-                                                style="width:10px">
-                                                <use
-                                                    xlink:href="assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                            </svg>
-                                            <h5 class="mb-0 ms-3">Europe</h5>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <h5 class="mb-0">862</h5>
-                                    </div>
-                                    <div class="col-12">
-                                        <div id="chart-europe"></div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-center">
-                                            <svg class="bi text-success" width="32" height="32" fill="blue"
-                                                style="width:10px">
-                                                <use
-                                                    xlink:href="assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                            </svg>
-                                            <h5 class="mb-0 ms-3">America</h5>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <h5 class="mb-0">375</h5>
-                                    </div>
-                                    <div class="col-12">
-                                        <div id="chart-america"></div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-center">
-                                            <svg class="bi text-danger" width="32" height="32" fill="blue"
-                                                style="width:10px">
-                                                <use
-                                                    xlink:href="assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                            </svg>
-                                            <h5 class="mb-0 ms-3">Indonesia</h5>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <h5 class="mb-0">1025</h5>
-                                    </div>
-                                    <div class="col-12">
-                                        <div id="chart-indonesia"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-xl-8">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Latest Comments</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-hover table-lg">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Comment</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="col-3">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="avatar avatar-md">
-                                                            <img src="assets/images/faces/5.jpg">
-                                                        </div>
-                                                        <p class="font-bold ms-3 mb-0">Si Cantik</p>
-                                                    </div>
-                                                </td>
-                                                <td class="col-auto">
-                                                    <p class=" mb-0">Congratulations on your graduation!</p>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-3">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="avatar avatar-md">
-                                                            <img src="assets/images/faces/2.jpg">
-                                                        </div>
-                                                        <p class="font-bold ms-3 mb-0">Si Ganteng</p>
-                                                    </div>
-                                                </td>
-                                                <td class="col-auto">
-                                                    <p class=" mb-0">Wow amazing design! Can you make another
-                                                        tutorial for
-                                                        this design?</p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
                     </div> --}}
+                    <div class="row">
                         <div class="col-12 col-xl-12">
                             <div class="card">
                                 <div class="card-header">
@@ -240,7 +128,6 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="input-group mb-3">
-
                                                         <input type="date" class="form-control" id="start_date"
                                                             placeholder="Start Date">
                                                     </div>
@@ -253,7 +140,6 @@
                                                         </div>
                                                         <input type="date" class=" form-control" id="end_date"
                                                             placeholder="End Date">
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -264,27 +150,23 @@
                                             <div class="row mt-3">
                                                 <div class="col-md-12">
                                                     <!-- Table -->
-                                                    <div class="table-responsive">
-                                                        <table class="table table-borderless display nowrap" id="records"
-                                                            style="width:100%">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>ลำดับ</th>
-                                                                    <th>รายการ</th>
-                                                                    <th>จำนวนเงิน</th>
-                                                                    <th>รายการ</th>
-                                                                    <th>วันที่</th>
-                                                                    <th></th>
-                                                                </tr>
-                                                            </thead>
-                                                        </table>
-
-                                                    </div>
+                                                    <table class="table table-borderless display nowrap" id="records"
+                                                        style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>ลำดับ</th>
+                                                                <th>รายการ</th>
+                                                                <th>จำนวนเงิน</th>
+                                                                <th>รายการ</th>
+                                                                <th>วันที่</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="row">
                                         <div class="col"> ยอดเงินทั้งหมด : </div>
                                         <div id="sum_filter"></div>
@@ -415,54 +297,6 @@
                             </div>
                         </div>
                     </div>
-                    {{-- end user profile modal --}}
-
-                    {{-- <div class="card">
-                    <div class="card-header">
-                        <h4>Recent Messages</h4>
-                    </div>
-                    <div class="card-content pb-4">
-                        <div class="recent-message d-flex px-4 py-3">
-                            <div class="avatar avatar-lg">
-                                <img src="assets/images/faces/4.jpg">
-                            </div>
-                            <div class="name ms-4">
-                                <h5 class="mb-1">Hank Schrader</h5>
-                                <h6 class="text-muted mb-0">@johnducky</h6>
-                            </div>
-                        </div>
-                        <div class="recent-message d-flex px-4 py-3">
-                            <div class="avatar avatar-lg">
-                                <img src="assets/images/faces/5.jpg">
-                            </div>
-                            <div class="name ms-4">
-                                <h5 class="mb-1">Dean Winchester</h5>
-                                <h6 class="text-muted mb-0">@imdean</h6>
-                            </div>
-                        </div>
-                        <div class="recent-message d-flex px-4 py-3">
-                            <div class="avatar avatar-lg">
-                                <img src="assets/images/faces/1.jpg">
-                            </div>
-                            <div class="name ms-4">
-                                <h5 class="mb-1">John Dodol</h5>
-                                <h6 class="text-muted mb-0">@dodoljohn</h6>
-                            </div>
-                        </div>
-                        <div class="px-4">
-                            <button class='btn btn-block btn-xl btn-light-primary font-bold mt-3'>Start
-                                Conversation</button>
-                        </div>
-                    </div>
-                </div> --}}
-                    {{-- <div class="card">
-                    <div class="card-header">
-                        <h4>Visitors Profile</h4>
-                    </div>
-                    <div class="card-body">
-                        <div id="chart-visitors-profile"></div>
-                    </div>
-                </div> --}}
                 </div>
             </section>
         </div>
@@ -474,7 +308,8 @@
                 </div>
                 <div class="float-end">
                     <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                            href="">IDEACLE CO.,LTD</a></p>
+                            href="">IDEACLE
+                            CO.,LTD</a></p>
                 </div>
             </div>
         </footer>
@@ -499,7 +334,7 @@
             const year = date.getFullYear();
 
             //replace the month
-            format = format.replace("MM", month.toString().padStart(2, "0"));
+            format = format.replace("mm", month.toString().padStart(2, "0"));
 
             //replace the year
             if (format.indexOf("yyyy") > -1) {
@@ -507,13 +342,10 @@
             } else if (format.indexOf("yy") > -1) {
                 format = format.replace("yy", year.toString().substr(2, 2));
             }
-
             //replace the day
             format = format.replace("dd", day.toString().padStart(2, "0"));
-
             return format;
         }
-
 
         // Fetch records
         function fetch(start_date, end_date) {
@@ -564,8 +396,6 @@
                                     return `${row.date}`;
                                 }
                             },
-
-
                         ]
                     });
                 }
@@ -576,29 +406,29 @@
 
         function deshboardHome() {
             let monthNames = [
-                "-", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน",
+                "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน",
                 "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม",
                 "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
             ];
-            var month =[];
-            var income=[];
-            var expenses =[];
+            var month = [];
+            var income = [];
+            var expenses = [];
 
             $.ajax({
                 url: "{{ route('api/dashboard') }}",
                 type: "GET",
                 data: {
-                    id_income02_lists: 'value'
+                    id_income02_lists: 'value',
                 },
                 dataType: "json",
                 success: function(Query) {
                     let count = 0;
                     for (let item in Query) {
-                    // console.log('รายจ่ายในเดือน '+monthNames[item]+' '+Query[item]['รายจ่าย'][0]['result']);
-                    month.push(monthNames[item]);
-                    income.push(Query[item]['รายรับ'][0]['result']);
-                    expenses.push(Query[item]['รายจ่าย'][0]['result']);
-                }
+                        // console.log('รายจ่ายในเดือน '+monthNames[item]+' '+Query[item]['รายจ่าย'][0]['result']);
+                        month.push(monthNames[item]);
+                        income.push(Query[item]['รายรับ'][0]['result']);
+                        expenses.push(Query[item]['รายจ่าย'][0]['result']);
+                    }
                     // console.log(month);
 
                     // console.log(Query[5]['รายจ่าย'][0]['result']);
@@ -647,8 +477,8 @@
             e.preventDefault();
             var start_date = $("#start_date").val();
             var end_date = $("#end_date").val();
-            start_date = dateFormat(start_date, 'dd-MM-yyyy')
-            end_date = dateFormat(end_date, 'dd-MM-yyyy')
+            start_date = dateFormat(start_date, 'dd-mm-yyyy')
+            end_date = dateFormat(end_date, 'dd-mm-yyyy')
 
             console.log(start_date);
             if (start_date == "" || end_date == "") {

@@ -82,10 +82,10 @@ return array (
     'normal' => $fontDir . '/glyphicons_halflings_normal_4ced20531a4f462a8c5c535d4debd2eb',
   ),
   'thsarabunnew' => array(
-    'normal' => $fontDir . '/thsarabunnew_normal_8e960966ce7f525cb3afe90728c6fe1a',
-    'bold' => $fontDir . '/thsarabunnew_bold_776aee37882376db2e52147408d8b80a',
-    'italic' => $fontDir . '/thsarabunnew_italic_c567df55954827bcfa97187a15d65f71',
-    'bold_italic' => $fontDir . '/thsarabunnew_bold_italic_c6d1fbb24bdaebc2492c37bece83dd31',
+    'normal' => $fontDir . '/thsarabunnew_normal_8e74e4eb1e2b1bb4c0885665e6855dc0',
+    'bold' => $fontDir . '/thsarabunnew_bold_6155a3f840ecd0e3430be0b3131df532',
+    'italic' => $fontDir . '/thsarabunnew_italic_5eb51d3729cbca365477513c573dc67a',
+    'bold_italic' => $fontDir . '/thsarabunnew_bold_italic_56a8d2210f4e503e63651f77fa4ef32d',
   ),
 );
 }; ?>

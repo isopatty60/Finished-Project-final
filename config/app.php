@@ -163,7 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Brian2694\Toastr\ToastrServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
-       
+
 
         /*
          * Package Service Providers...

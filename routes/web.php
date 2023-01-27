@@ -1,59 +1,48 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PhotosController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\ResetPasswordController;
-use App\Http\Controllers\FormController;
-use App\Http\Controllers\UserManagementController;
-use App\Http\Controllers\LockScreen;
-use App\Http\Controllers\ProductController;
+// use App\Http\Controllers\PhotosController;
+// use App\Http\Controllers\Auth\LoginController;
+// use App\Http\Controllers\Auth\RegisterController;
+// use App\Http\Controllers\ResetPasswordController;
+// use App\Http\Controllers\FormController;
+// use App\Http\Controllers\UserManagementController;
+// use App\Http\Controllers\LockScreen;
+// use App\Http\Controllers\ProductController;
 
 // --------------------------------------------------------------------------
 use App\Http\Controllers\PDFController;
-use App\Http\Controllers\PDFIncome2Controller;
-use App\Http\Controllers\PDFIncome3Controller;
+use App\Http\Controllers\PDFInvItemsController;
+use App\Http\Controllers\PDFinvDetailsController;
 
 // --------------------------------------------------------------------------
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\Customer_listsController;
-use App\Http\Controllers\IncomeController;
-use App\Http\Controllers\Income1Controller;
-use App\Http\Controllers\Income2Controller;
+use App\Http\Controllers\invReceiptListsController;
+use App\Http\Controllers\invReceiptDetailsController;
+use App\Http\Controllers\InvFiscalYearsController;
+use App\Http\Controllers\InvMonthsController;
+use App\Http\Controllers\invDetailController;
 use App\Http\Controllers\Income2pageController;
-use App\Http\Controllers\Income3Controller;
+use App\Http\Controllers\invItemsController;
+use App\Http\Controllers\INVFiscalYearsExpensesController;
+use App\Http\Controllers\INVMonthsExpensesController;
+use App\Http\Controllers\INVDetailsExpensesController;
+use App\Http\Controllers\INVItemsExpensesController;
 
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::group(['middleware'=>'auth'],function()
-{
-    Route::get('home',function()
-    {
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('home', function () {
         return view('home');
     });
-    Route::get('home',function()
-    {
+    Route::get('home', function () {
         return view('home');
     });
 });
 
-Auth::routes();
+// Auth::routes();
 
 // ----------------------------- home dashboard ------------------------------//
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -104,45 +93,65 @@ Route::get('form/view/detail/{id}', [App\Http\Controllers\FormController::class,
 Route::post('form/view/update', [App\Http\Controllers\FormController::class, 'viewUpdate'])->name('form/view/update');
 Route::get('delete/{id}', [App\Http\Controllers\FormController::class, 'viewDelete'])->middleware('auth');
 
-// ----------------------------- form Test ------------------------------//
 
-Route::resource('posts', PostController::class)->middleware('auth');
-Route::resource('customer_lists', Customer_listsController::class)->middleware('auth');
-Route::get('/customer_lists/create/{id}', [Customer_listsController::class , 'create004'])->name('create004')->middleware('auth');
+// ----------------------------- form invReceiptLists ------------------------------//
+Route::resource('invReceiptLists', invReceiptListsController::class)->middleware('auth');
+Route::put('invReceiptLists/update/{id}', [invReceiptListsController::class, 'update'])->name('invReceiptLists.update')->middleware('auth');
 
-Route::put('update_customer/{id}', [Customer_listsController::class, 'update'])->name('update_customer')->middleware('auth');
+// ----------------------------- form invReceiptDetails ------------------------------//
+Route::resource('invReceiptDetails', invReceiptDetailsController::class)->middleware('auth');
+Route::get('/invReceiptDetails/create/{id}', [invReceiptDetailsController::class, 'create004'])->name('create004')->middleware('auth');
+Route::put('update_invReceiptDetails/{id}', [invReceiptDetailsController::class, 'update'])->name('update_invReceiptDetails')->middleware('auth');
 
 
-// ----------------------------- form Income ------------------------------//
-Route::resource('incomes', IncomeController::class)->middleware('auth');
+// ----------------------------- form InvFiscalYears ------------------------------//
+Route::resource('fiscal_years', InvFiscalYearsController::class)->middleware('auth');
+Route::GET('fiscal_years/update/{id}', [InvFiscalYearsController::class, 'update'])->name('fiscal_years.update')->middleware('auth');
 
-// ----------------------------- form Income1 ------------------------------//
-Route::resource('income1', Income1Controller::class)->middleware('auth');
-Route::get('/income1/create/{id}', [Income1Controller::class , 'create001'])->name('create001')->middleware('auth');
+// ----------------------------- form InvFiscalYearsExpenses ------------------------------//
+Route::resource('INV_fiscal_years_expenses', INVFiscalYearsExpensesController::class)->middleware('auth');
+Route::GET('INV_fiscal_years_expenses/update/{id}', [INVFiscalYearsExpensesController::class, 'update'])->name('fiscal_years.update')->middleware('auth');
 
-Route::put('update_income1/{id}', [Income1Controller::class, 'update'])->name('update_income1')->middleware('auth');
+// ----------------------------- form InvMonths ------------------------------//
+Route::resource('InvMonths', InvMonthsController::class)->middleware('auth');
+Route::get('/InvMonths/create/{id}', [InvMonthsController::class, 'create001'])->name('create001')->middleware('auth');
+Route::put('update_InvMonths/{id}', [InvMonthsController::class, 'update'])->name('update_InvMonths')->middleware('auth');
+Route::delete('/InvMonths/destroy/{id}', [InvMonthsController::class, 'destroy'])->name('InvMonths.destroy')->middleware('auth');
+
+// ----------------------------- form InvMonthsExpenses ------------------------------//
+Route::resource('InvMonths_expenses', INVMonthsExpensesController::class)->middleware('auth');
+Route::get('/InvMonths_expenses/create/{id}', [INVMonthsExpensesController::class, 'create001'])->name('create001')->middleware('auth');
+Route::put('update_InvMonths_expenses/{id}', [INVMonthsExpensesController::class, 'update'])->name('update_InvMonths')->middleware('auth');
+Route::delete('/InvMonths_expenses/destroy/{id}', [INVMonthsExpensesController::class, 'destroy'])->name('InvMonths.destroy')->middleware('auth');
 
 // ----------------------------- form income2page ------------------------------//
 Route::resource('income2page', Income2pageController::class)->middleware('auth');
 Route::get('students/records', [Income2pageController::class, 'records'])->name('students/records');
 
-// ----------------------------- form Income2 ------------------------------//
-Route::resource('income2', Income2Controller::class)->middleware('auth');
-Route::get('/income2/create/{id}', [Income2Controller::class , 'create002'])->name('create002')->middleware('auth');
+// ----------------------------- form invDetails ------------------------------//
+Route::resource('invDetails', invDetailController::class)->middleware('auth');
+Route::get('/invDetails/create/{id}', [invDetailController::class, 'create002'])->name('create002')->middleware('auth');
+Route::put('update_invDetails/{id}', [invDetailController::class, 'update'])->name('update_invDetails')->middleware('auth');
 
-Route::put('update_income2/{id}', [Income2Controller::class, 'update'])->name('update_income2')->middleware('auth');
+// ----------------------------- form invDetailsExpenses ------------------------------//
+Route::resource('invDetails_expenses', INVDetailsExpensesController::class)->middleware('auth');
+Route::get('/invDetails_expenses/create/{id}', [INVDetailsExpensesController::class, 'create002'])->name('create002')->middleware('auth');
+Route::put('update_invDetails_expenses/{id}', [INVDetailsExpensesController::class, 'update'])->name('update_invDetails')->middleware('auth');
 
-// ----------------------------- form Income3 Image ------------------------------//
-Route::resource('income3', Income3Controller::class)->middleware('auth');
-Route::get('/income3/create/{id}', [Income3Controller::class , 'create003'])->name('create003')->middleware('auth');
+// ----------------------------- form invItems Image ------------------------------//
+Route::resource('invItems', invItemsController::class)->middleware('auth');
+Route::get('/invItems/create/{id}', [invItemsController::class, 'create003'])->name('create003')->middleware('auth');
+Route::put('update_invItems/{id}', [invItemsController::class, 'update'])->name('update_invItems')->middleware('auth');
 
-Route::put('update_income3/{id}', [Income3Controller::class, 'update'])->name('update_income3')->middleware('auth');
+// ----------------------------- form invItems Expenses ------------------------------//
+Route::resource('invItems_expenses', INVItemsExpensesController::class)->middleware('auth');
+Route::get('/invItems_expenses/create/{id}', [INVItemsExpensesController::class, 'create003'])->name('create003')->middleware('auth');
+Route::put('update_invItems_expenses/{id}', [INVItemsExpensesController::class, 'update'])->name('update_invItems')->middleware('auth');
 
 // ----------------------------- form pdfdata ------------------------------//
-Route::get('/pdf/{id}', [PDFController::class , 'pdf'])->middleware('auth');
-Route::get('/PDFIncome2/{id}', [PDFIncome2Controller::class , 'PDFIncome2'])->middleware('auth');
-Route::get('/pdfIncome3/{id}', [PDFIncome3Controller::class , 'pdfIncome3'])->middleware('auth');
+Route::get('/pdf/{id}', [PDFController::class, 'pdf'])->middleware('auth');
+Route::get('/pdfInvDetails/{id}', [PDFinvDetailsController::class, 'PDFInvDetails'])->middleware('auth');
+Route::get('/pdfInvItems/{id}', [PDFInvItemsController::class, 'pdfInvItems'])->middleware('auth');
 
 // ----------------------------- form dashboard ------------------------------//
 Route::get('/api/dashboard', [App\Http\Controllers\HomeController::class, 'deshboard'])->name('api/dashboard');
-

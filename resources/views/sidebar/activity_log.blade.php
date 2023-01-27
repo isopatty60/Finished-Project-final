@@ -3,7 +3,8 @@
         <div class="sidebar-header">
             <div class="d-flex justify-content-between">
                 <div class="logo">
-                    <a href="{{ route('home') }}"><img src="{{ URL::to('assets/images/logo/logo.png') }}" alt="Logo" srcset=""></a>
+                    <a href="{{ route('home') }}"><img src="{{ URL::to('assets/images/logo/logo.png') }}" alt="Logo"
+                            srcset=""></a>
                 </div>
                 <div class="toggler">
                     <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -23,19 +24,19 @@
                 <li class="sidebar-item">
                     <div class="card-body">
                         <div class="badges">
-                            @if (Auth::user()->role_name=='Admin')
-                            <span>Name: <span class="fw-bolder">{{ Auth::user()->name }}</span></span>
-                            <hr>
-                            <span>Role Name:</span>
-                            <span class="badge bg-success">Admin</span>
+                            @if (Auth::user()->role_name == 'Admin')
+                                <span>Name: <span class="fw-bolder">{{ Auth::user()->name }}</span></span>
+                                <hr>
+                                <span>Role Name:</span>
+                                <span class="badge bg-success">Admin</span>
                             @endif
-                            @if (Auth::user()->role_name=='Super Admin')
+                            @if (Auth::user()->role_name == 'Super Admin')
                                 <span>Name: <span class="fw-bolder">{{ Auth::user()->name }}</span></span>
                                 <hr>
                                 <span>Role Name:</span>
                                 <span class="badge bg-info">Super Admin</span>
                             @endif
-                            @if (Auth::user()->role_name=='Normal User')
+                            @if (Auth::user()->role_name == 'Normal User')
                                 <span>Name: <span class="fw-bolder">{{ Auth::user()->name }}</span></span>
                                 <hr>
                                 <span>Role Name:</span>
@@ -50,9 +51,9 @@
                         <span>เปลี่ยนรหัสผ่าน</span>
                     </a>
                 </li>
-                
-                @if (Auth::user()->role_name=='Admin')
-                <li class="sidebar-title">เพจ &amp; คอนโทรลเลอร์</li>
+
+                @if (Auth::user()->role_name == 'Admin')
+                    <li class="sidebar-title">เพจ &amp; คอนโทรลเลอร์</li>
                     <li class="sidebar-item  has-sub active">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-hexagon-fill"></i>
@@ -68,21 +69,20 @@
                             <li class="submenu-item">
                                 <a href="{{ route('register') }}">ลงทะเบียนผู้ใช้</a>
                             </li>
-                            
+
                             <li class="submenu-item">
                                 <a href="/income2page">รายรับ-จ่าย</a>
                             </li>
 
-                            
+
                             <!-- <li class="submenu-item active">
                                 <a href="{{ route('activity/login/logout') }}">บันทึกกิจกรรม</a>
                             </li>
                         </ul> -->
                     </li>
-               
-                    @endif
+                @endif
 
-                    @if (Auth::user()->role_name=='Admin')
+                @if (Auth::user()->role_name == 'Admin')
                     <li class="sidebar-title">จัดการ &amp; ระบบ </li>
                     <li class="sidebar-item  has-sub">
                         <a href="#" class='sidebar-link'>
@@ -91,15 +91,15 @@
                         </a>
                         <ul class="submenu">
                             <li class="submenu-item">
-                                <a href="/posts">ใบเสร็จรับเงิน</a>
+                                <a href="/invReceiptLists">ใบเสร็จรับเงิน</a>
                             </li>
-                            
-                        <ul class="submenu">
-                            <li class="submenu-item">
-                                <a href="/income2page">รายรับ-จ่าย</a>
-                            </li>
-                            
-                            <!-- <li class="submenu-item">
+
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="/fiscal_years">รายรับ-จ่าย</a>
+                                </li>
+
+                                <!-- <li class="submenu-item">
                                 <a href="{{ route('activity/log') }}">บันทึกกิจกรรมของผู้ใช้</a>
                             </li>
                             <li class="submenu-item">
@@ -108,11 +108,11 @@
                             <li class="submenu-item">
                                 <a href="{{ route('activity/login/logout') }}">บันทึกกิจกรรม</a>
                             </li> -->
-                        </ul>
+                            </ul>
                     </li>
                 @endif
-                
-                @if (Auth::user()->role_name=='Super Admin')
+
+                @if (Auth::user()->role_name == 'Super Admin')
                     <li class="sidebar-title">จัดการ &amp; ระบบ </li>
                     <li class="sidebar-item  has-sub">
                         <a href="#" class='sidebar-link'>
@@ -121,15 +121,15 @@
                         </a>
                         <ul class="submenu">
                             <li class="submenu-item">
-                                <a href="/posts">ใบเสร็จรับเงิน</a>
+                                <a href="/invReceiptLists">ใบเสร็จรับเงิน</a>
                             </li>
-                            
-                        <ul class="submenu">
-                            <li class="submenu-item">
-                                <a href="/incomes">รายรับ-จ่าย</a>
-                            </li>
-                            
-                            <!-- <li class="submenu-item">
+
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="/fiscal_years">รายรับ-จ่าย</a>
+                                </li>
+
+                                <!-- <li class="submenu-item">
                                 <a href="{{ route('activity/log') }}">บันทึกกิจกรรมของผู้ใช้</a>
                             </li>
                             <li class="submenu-item">
@@ -138,13 +138,13 @@
                             <li class="submenu-item">
                                 <a href="{{ route('activity/login/logout') }}">บันทึกกิจกรรม</a>
                             </li> -->
-                        </ul>
+                            </ul>
                     </li>
                 @endif
-                
 
-                    
-                
+
+
+
                 <li class="sidebar-title">หมายเหตุ &amp; อืนๆ</li>
                 <!-- <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
