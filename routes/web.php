@@ -23,7 +23,7 @@ use App\Http\Controllers\InvMonthsController;
 use App\Http\Controllers\invDetailController;
 use App\Http\Controllers\Income2pageController;
 use App\Http\Controllers\invItemsController;
-use App\Http\Controllers\INVFiscalYearsExpensesController;
+use App\Http\Controllers\invFiscalYearsExpensesController;
 use App\Http\Controllers\INVMonthsExpensesController;
 use App\Http\Controllers\INVDetailsExpensesController;
 use App\Http\Controllers\INVItemsExpensesController;
@@ -109,8 +109,8 @@ Route::resource('fiscal_years', InvFiscalYearsController::class)->middleware('au
 Route::GET('fiscal_years/update/{id}', [InvFiscalYearsController::class, 'update'])->name('fiscal_years.update')->middleware('auth');
 
 // ----------------------------- form InvFiscalYearsExpenses ------------------------------//
-Route::resource('INV_fiscal_years_expenses', INVFiscalYearsExpensesController::class)->middleware('auth');
-Route::GET('INV_fiscal_years_expenses/update/{id}', [INVFiscalYearsExpensesController::class, 'fiscalYearsExpenses'])->name('fiscalYearsExpenses.update')->middleware('auth');
+Route::resource('invFiscalYearsExpenses', invFiscalYearsExpensesController::class)->middleware('auth');
+Route::GET('invFiscalYearsExpenses/update/{id}', [invFiscalYearsExpensesController::class, 'fiscalYearsExpenses'])->name('fiscalYearsExpenses.update')->middleware('auth');
 
 // ----------------------------- form InvMonths ------------------------------//
 Route::resource('InvMonths', InvMonthsController::class)->middleware('auth');
