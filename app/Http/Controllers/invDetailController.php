@@ -26,7 +26,7 @@ class invDetailController extends Controller
         return view('invDetails.create');
     }
 
-    public function create002($id)
+    public function createInvDetails($id)
     {
         //return response()->json($id);
         return view('invDetails.create', compact('id'));

@@ -22,7 +22,7 @@ class INVMonthsExpensesController extends Controller
         return view('InvMonths_expenses.create');
     }
 
-    public function create001($id)
+    public function createInvMonthsExpenses($id)
     {
         return view('InvMonths_expenses.create', compact('id'));
     }

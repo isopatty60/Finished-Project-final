@@ -29,7 +29,7 @@ class invItemsController extends Controller
         return view('invItems.create');
     }
 
-    public function create003($id)
+    public function createInvItems($id)
     {
         //return response()->json($id);
         return view('invItems.create', compact('id'));

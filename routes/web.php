@@ -110,43 +110,39 @@ Route::GET('fiscal_years/update/{id}', [InvFiscalYearsController::class, 'update
 
 // ----------------------------- form InvFiscalYearsExpenses ------------------------------//
 Route::resource('INV_fiscal_years_expenses', INVFiscalYearsExpensesController::class)->middleware('auth');
-Route::GET('INV_fiscal_years_expenses/update/{id}', [INVFiscalYearsExpensesController::class, 'update'])->name('fiscal_years.update')->middleware('auth');
+Route::GET('INV_fiscal_years_expenses/update/{id}', [INVFiscalYearsExpensesController::class, 'fiscalYearsExpenses'])->name('fiscalYearsExpenses.update')->middleware('auth');
 
 // ----------------------------- form InvMonths ------------------------------//
 Route::resource('InvMonths', InvMonthsController::class)->middleware('auth');
-Route::get('/InvMonths/create/{id}', [InvMonthsController::class, 'create001'])->name('create001')->middleware('auth');
+Route::get('/InvMonths/create/{id}', [InvMonthsController::class, 'createInvMonths'])->name('createInvMonths')->middleware('auth');
 Route::put('update_InvMonths/{id}', [InvMonthsController::class, 'update'])->name('update_InvMonths')->middleware('auth');
 Route::delete('/InvMonths/destroy/{id}', [InvMonthsController::class, 'destroy'])->name('InvMonths.destroy')->middleware('auth');
 
 // ----------------------------- form InvMonthsExpenses ------------------------------//
-Route::resource('InvMonths_expenses', INVMonthsExpensesController::class)->middleware('auth');
-Route::get('/InvMonths_expenses/create/{id}', [INVMonthsExpensesController::class, 'create001'])->name('create001')->middleware('auth');
-Route::put('update_InvMonths_expenses/{id}', [INVMonthsExpensesController::class, 'update'])->name('update_InvMonths')->middleware('auth');
-Route::delete('/InvMonths_expenses/destroy/{id}', [INVMonthsExpensesController::class, 'destroy'])->name('InvMonths.destroy')->middleware('auth');
-
-// ----------------------------- form income2page ------------------------------//
-Route::resource('income2page', Income2pageController::class)->middleware('auth');
-Route::get('students/records', [Income2pageController::class, 'records'])->name('students/records');
+Route::resource('InvMonths_expenses', INV_months_expenses::class)->middleware('auth');
+Route::get('/InvMonths_expenses/create/{id}', [INV_months_expenses::class, 'createInvMonthsExpenses'])->name('createInvMonthsExpenses')->middleware('auth');
+Route::put('update_InvMonths_expenses/{id}', [INV_months_expenses::class, 'updateInvMonthExpenses'])->name('updateInvMonthExpenses')->middleware('auth');
+Route::delete('/InvMonths_expenses/destroy/{id}', [INV_months_expenses::class, 'destroy'])->name('InvMonths.destroy')->middleware('auth');
 
 // ----------------------------- form invDetails ------------------------------//
 Route::resource('invDetails', invDetailController::class)->middleware('auth');
-Route::get('/invDetails/create/{id}', [invDetailController::class, 'create002'])->name('create002')->middleware('auth');
+Route::get('/invDetails/create/{id}', [invDetailController::class, 'createInvDetails'])->name('createInvDetails')->middleware('auth');
 Route::put('update_invDetails/{id}', [invDetailController::class, 'update'])->name('update_invDetails')->middleware('auth');
 
 // ----------------------------- form invDetailsExpenses ------------------------------//
 Route::resource('invDetails_expenses', INVDetailsExpensesController::class)->middleware('auth');
-Route::get('/invDetails_expenses/create/{id}', [INVDetailsExpensesController::class, 'create002'])->name('create002')->middleware('auth');
-Route::put('update_invDetails_expenses/{id}', [INVDetailsExpensesController::class, 'update'])->name('update_invDetails')->middleware('auth');
+Route::get('/invDetails_expenses/create/{id}', [INVDetailsExpensesController::class, 'createInvDetailsExpenses'])->name('createInvDetailsExpenses')->middleware('auth');
+Route::put('update_invDetails_expenses/{id}', [INVDetailsExpensesController::class, 'updateInvDetailsExpenses'])->name('updateInvDetailsExpenses')->middleware('auth');
 
 // ----------------------------- form invItems Image ------------------------------//
 Route::resource('invItems', invItemsController::class)->middleware('auth');
-Route::get('/invItems/create/{id}', [invItemsController::class, 'create003'])->name('create003')->middleware('auth');
+Route::get('/invItems/create/{id}', [invItemsController::class, 'createInvItems'])->name('createInvItems')->middleware('auth');
 Route::put('update_invItems/{id}', [invItemsController::class, 'update'])->name('update_invItems')->middleware('auth');
 
 // ----------------------------- form invItems Expenses ------------------------------//
 Route::resource('invItems_expenses', INVItemsExpensesController::class)->middleware('auth');
-Route::get('/invItems_expenses/create/{id}', [INVItemsExpensesController::class, 'create003'])->name('create003')->middleware('auth');
-Route::put('update_invItems_expenses/{id}', [INVItemsExpensesController::class, 'update'])->name('update_invItems')->middleware('auth');
+Route::get('/invItems_expenses/create/{id}', [INVItemsExpensesController::class, 'createInvItems_expenses'])->name('createInvItems_expenses')->middleware('auth');
+Route::put('update_invItems_expenses/{id}', [INVItemsExpensesController::class, 'updateInvItemsExpenses'])->name('updateInvItemsExpenses')->middleware('auth');
 
 // ----------------------------- form pdfdata ------------------------------//
 Route::get('/pdf/{id}', [PDFController::class, 'pdf'])->middleware('auth');
@@ -155,3 +151,7 @@ Route::get('/pdfInvItems/{id}', [PDFInvItemsController::class, 'pdfInvItems'])->
 
 // ----------------------------- form dashboard ------------------------------//
 Route::get('/api/dashboard', [App\Http\Controllers\HomeController::class, 'deshboard'])->name('api/dashboard');
+
+// ----------------------------- form income2page ------------------------------//
+Route::resource('income2page', Income2pageController::class)->middleware('auth');
+Route::get('students/records', [Income2pageController::class, 'records'])->name('students/records');

@@ -32,7 +32,7 @@
             <section class="section">
                 <div class="card">
                     <div class="card-header">
-                        <a class="btn btn-success" href="{{ route('create001', ['id' => $id]) }}"> เพิ่มรายการ</a>
+                        <a class="btn btn-success" href="{{ route('createInvMonths', ['id' => $id]) }}"> เพิ่มรายการ</a>
                         <a class="btn btn-success" href="javascript:history.back()"> กลับ</a>
 
                     </div>

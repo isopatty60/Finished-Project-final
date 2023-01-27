@@ -34,7 +34,8 @@
             <section class="section">
                 <div class="card">
                     <div class="card-header">
-                        <a class="btn btn-success" href="{{ route('create003', ['id' => $id]) }}"> เพิ่มรายการ</a>
+                        <a class="btn btn-success" href="{{ route('createInvItems', ['id' => $id]) }}">
+                            เพิ่มรายการ</a>
                         <a href="/pdfInvItems/{{ $id }} ?>" target="_blank" class="btn btn-success">
                             <span>รายงาน</span></a>
                         <a href="/invDetails/{{ $invDetailsName->Month_id }}" class="btn btn-success">

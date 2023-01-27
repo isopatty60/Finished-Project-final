@@ -39,7 +39,7 @@
             <section class="section">
                 <div class="card">
                     <div class="card-header">
-                        <a class="btn btn-success" href="{{ route('create002', ['id' => $id]) }}"> เพิ่มรายการ</a>
+                        <a class="btn btn-success" href="{{ route('createInvDetails', ['id' => $id]) }}"> เพิ่มรายการ</a>
                         <a href="/pdfInvDetails/{{ $id }} ?>" target="_blank" class="btn btn-success">
                             <span>รายงาน</span></a>
                         <a href="/InvMonths/{{ $invDetailsName->Fiscal_year_id }}" class="btn btn-success">

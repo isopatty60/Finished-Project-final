@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateINVMonthsExpensesTable extends Migration
+class CreateINVFiscalYearsExpensesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateINVMonthsExpensesTable extends Migration
      */
     public function up()
     {
-        Schema::create('INV_months_expenses', function (Blueprint $table) {
+        Schema::create('inv_fiscal_years_expenses', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('detail');
+            $table->string('title');
+            $table->text('description');
             $table->string('date');
             $table->timestamps();
-            $table->unsignedBigInteger('Fiscal_year_id_expenses');
-            $table->foreign('Fiscal_year_id_expenses')->references('id')->on('INV_fiscal_years_expenses')->onDelete('cascade');
         });
     }
 
@@ -31,6 +29,6 @@ class CreateINVMonthsExpensesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('INV_months_expenses');
+        Schema::dropIfExists('inv_fiscal_years_expenses');
     }
 }
