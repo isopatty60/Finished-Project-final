@@ -92,8 +92,11 @@
                                 <a href="/invReceiptLists">ใบเสร็จรับเงิน</a>
                             </li>
 
-                            <li class="submenu-item active">
-                                <a href="/fiscal_years">รายรับ-จ่าย</a>
+                            <li class="submenu-item">
+                                <a href="/fiscal_years">รายรับ</a>
+                            </li>
+                            <li class="submenu-item">
+                                <a href="/invFiscalYearExpenses">รายจ่าย</a>
                             </li>
                             <!-- <li class="submenu-item">
                                 <a href="{{ route('register') }}">ลงทะเบียนผู้ใช้</a>
@@ -118,7 +121,10 @@
                             </li>
 
                             <li class="submenu-item">
-                                <a href="/income2page">รายรับ-จ่าย</a>
+                                <a href="/fiscal_years">รายรับ</a>
+                            </li>
+                            <li class="submenu-item">
+                                <a href="/invFiscalYearExpenses">รายจ่าย</a>
                             </li>
                             <!-- <li class="submenu-item">
                                 <a href="{{ route('register') }}">ลงทะเบียนผู้ใช้</a>

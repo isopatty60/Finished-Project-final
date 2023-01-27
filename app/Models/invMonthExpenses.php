@@ -10,7 +10,7 @@ class invMonthExpenses extends Model
     use HasFactory;
 
     protected $fillable = [
-        'detail', 'name', 'date', 'detail', 'Fiscal_year_id'
+        'detail', 'name', 'date', 'detail', 'fiscal_year_id_expenses'
     ];
 
     public function invDetailsExpenses()

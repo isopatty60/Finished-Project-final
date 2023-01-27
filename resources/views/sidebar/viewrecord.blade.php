@@ -85,7 +85,10 @@
 
                             <ul class="submenu">
                                 <li class="submenu-item">
-                                    <a href="/fiscal_years">รายรับ-จ่าย</a>
+                                    <a href="/fiscal_years">รายรับ</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="/invFiscalYearExpenses">รายจ่าย</a>
                                 </li>
 
                                 <li class="submenu-item">
@@ -115,7 +118,10 @@
 
                             <ul class="submenu">
                                 <li class="submenu-item">
-                                    <a href="/incomes">รายรับ-จ่าย</a>
+                                    <a href="/fiscal_years">รายรับ</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="/invFiscalYearExpenses">รายจ่าย</a>
                                 </li>
 
                                 <!-- <li class="submenu-item">

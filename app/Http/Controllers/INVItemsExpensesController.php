@@ -8,7 +8,7 @@ use Illuminate\support\Facades\DB;
 use Illuminate\Http\Request;
 
 
-class INVItemsExpensesController extends Controller
+class invItemsExpensesController extends Controller
 {
 
     /**
