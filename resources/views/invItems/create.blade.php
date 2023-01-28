@@ -121,14 +121,8 @@
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
-                        <strong>หมายเหตุ:</strong>
-                        <div class="select">
-                            <select name="note" class="form-select">
-                                <option selected disabled>เลือกรายการ</option>
-                                <option value="รายรับ">รายรับ</option>
-                                <option value="รายจ่าย">รายจ่าย</option>
-                            </select>
-                        </div>
+                        <label for="note" class="label-control">หมายเหตุ:</label>
+                        <input id="note" type="text" value="รายรับ" name="note" class="form-control" disabled>
                     </div>
                 </div>
 

@@ -28,7 +28,6 @@ use App\Http\Controllers\invMonthExpensesController;
 use App\Http\Controllers\invDetailExpensesController;
 use App\Http\Controllers\invItemExpensesController;
 
-
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -149,9 +148,5 @@ Route::get('/pdf/{id}', [PDFController::class, 'pdf'])->middleware('auth');
 Route::get('/pdfInvDetails/{id}', [PDFinvDetailsController::class, 'PDFInvDetails'])->middleware('auth');
 Route::get('/pdfInvItems/{id}', [PDFInvItemsController::class, 'pdfInvItems'])->middleware('auth');
 
-// ----------------------------- form dashboard ------------------------------//
-Route::get('/api/dashboard', [App\Http\Controllers\HomeController::class, 'deshboard'])->name('api/dashboard');
-
 // ----------------------------- form income2page ------------------------------//
 Route::resource('income2page', Income2pageController::class)->middleware('auth');
-Route::get('students/records', [Income2pageController::class, 'records'])->name('students/records');

@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// dashboard
+Route::get('/dashboard', [App\Http\Controllers\Api\DashboardController::class, 'index']);
+
+// records
+Route::get('/students/records', [App\Http\Controllers\Api\DashboardController::class, 'records']);

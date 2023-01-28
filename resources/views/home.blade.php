@@ -3,6 +3,34 @@
     @extends('sidebar.dashboard')
 @endsection
 @section('content')
+    <style>
+        #records_filter label {
+            display: flex;
+            justify-content: end;
+        }
+
+        #records_filter label input {
+            margin-left: .3rem;
+            width: 10rem;
+        }
+
+        #records_length label {
+            display: flex;
+        }
+
+        #records_length label select {
+            margin: 0 .3rem;
+            width: 3rem;
+        }
+
+        @media only screen and (max-width: 768px) {
+            #records_filter label {
+                justify-content: start;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -20,20 +48,26 @@
     </script>
     <!-- Momentjs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- apexcharts -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
     <div id="main">
+        {{-- header --}}
         <header class="mb-3">
             <a href="#" class="burger-btn d-block d-xl-none">
                 <i class="bi bi-justify fs-3"></i>
             </a>
         </header>
+
         <div class="page-heading">
             <h3>Profile Statistics</h3>
         </div>
+
         {{-- message --}}
         {!! Toastr::message() !!}
         <div class="page-content">
             <section class="row">
-                <div class="col-12 col-lg-9">
+                <div class="col-12">
                     <div class="row">
                         <div class="col-6 col-lg-3 col-md-6">
                             <div class="card">
@@ -107,11 +141,25 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header d-md-flex justify-content-between">
                                     <h4>สรุปยอดการใช้จ่าย</h4>
+                                    <div class="form-group">
+                                        <label for="chart_year" class="label-control">ปี พ.ศ. </label>
+                                        <select id="chart_year" name="chart_year" class="form-control">
+                                            <?php
+                                        $years = date('Y');
+                                        for ($year=$years; $year > $years-10; $year--) {
+                                        ?>
+                                            <option value="{{ $year + 543 }}" {{ $year == date('Y') ? 'selected' : '' }}>
+                                                {{ $year + 543 }}</option>
+                                            <?php
+                                         }
+                                        ?>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="card-body">
-                                    <div id="chart-profile-visit"></div>
+                                    <div id="chart-profile-visit" class="w-100"></div>
                                 </div>
                             </div>
                         </div>
@@ -126,26 +174,32 @@
                                     <div class="row">
                                         <div class="col-md-12 mt-3">
                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="input-group mb-3">
-                                                        <input type="date" class="form-control" id="start_date"
-                                                            placeholder="Start Date">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="input-group mb-3">
+                                                <div class="col-md-8">
+                                                    <label class="label-control">วันที่</label>
+                                                    <div class="input-group mb-3 mb-md-0">
+                                                        <input type="date" name="start_date" class="form-control"
+                                                            id="start_date">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text bg-info text-white"
-                                                                id="basic-addon1"><i class="fas fa-calendar-alt"></i></span>
+                                                                id="basic-addon1"><i class="fas fa-calendar-alt"
+                                                                    style="height: 1.5rem;"></i></span>
                                                         </div>
-                                                        <input type="date" class=" form-control" id="end_date"
-                                                            placeholder="End Date">
+                                                        <input type="date" class="form-control" id="end_date"
+                                                            name="end_date">
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div>
-                                                <button id="filter" class="btn btn-outline-info btn-sm">Filter</button>
-                                                <button id="reset" class="btn btn-outline-warning btn-sm">Reset</button>
+                                                <div class="col-md-4">
+                                                    <label for="note" class="label-control">รายได้</label>
+                                                    <select id="note" name="note" class="form-control">
+                                                        <option value="">ทั้งหมด</option>
+                                                        <option value="รายรับ">รายรับ</option>
+                                                        <option value="รายจ่าย">รายจ่าย</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-12 mt-3">
+                                                    <button id="filter" class="btn btn-outline-info ml-3">Filter</button>
+                                                    <button id="reset" class="btn btn-outline-warning">Reset</button>
+                                                </div>
                                             </div>
                                             <div class="row mt-3">
                                                 <div class="col-md-12">
@@ -180,127 +234,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-3">
-                    <div class="card" data-bs-toggle="modal" data-bs-target="#default">
-                        <div class="card-body py-4 px-5">
-                            <div class="d-flex align-items-center">
-                                <div class="avatar avatar-xl">
-                                    <img src="{{ URL::to('/images/' . Auth::user()->avatar) }}"
-                                        alt="{{ Auth::user()->avatar }}">
-                                </div>
-                                <div class="ms-3 name">
-                                    <h5 class="font-bold">{{ Auth::user()->name }}</h5>
-                                    <h6 class="text-muted mb-0">{{ Auth::user()->email }}</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- user profile modal --}}
-                    <div class="card-body">
-                        <!--Basic Modal -->
-                        <div class="modal fade text-left" id="default" tabindex="-1" aria-labelledby="myModalLabel1"
-                            style="display: none;" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="myModalLabel1">User Profile</h5>
-                                        <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
-                                            aria-label="Close">
-                                            <i data-feather="x"></i>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-body">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <label>Full Name</label>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="form-group has-icon-left">
-                                                        <div class="position-relative">
-                                                            <input type="text" class="form-control" name="fullName"
-                                                                value="{{ Auth::user()->name }}" readonly>
-                                                            <div class="form-control-icon">
-                                                                <i class="bi bi-person"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label>Email Address</label>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="form-group has-icon-left">
-                                                        <div class="position-relative">
-                                                            <input type="email" class="form-control" name="email"
-                                                                value="{{ Auth::user()->email }}" readonly>
-                                                            <div class="form-control-icon">
-                                                                <i class="bi bi-envelope"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label>Mobile Number</label>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="form-group has-icon-left">
-                                                        <div class="position-relative">
-                                                            <input type="number" class="form-control"
-                                                                value="{{ Auth::user()->phone_number }}" readonly>
-                                                            <div class="form-control-icon">
-                                                                <i class="bi bi-phone"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-4">
-                                                    <label>Status</label>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="form-group has-icon-left">
-                                                        <div class="position-relative">
-                                                            <input type="text" class="form-control"
-                                                                value="{{ Auth::user()->status }}" readonly>
-                                                            <div class="form-control-icon">
-                                                                <i class="bi bi-bag-check"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-4">
-                                                    <label>Role Name</label>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="form-group has-icon-left">
-                                                        <div class="position-relative">
-                                                            <input type="text" class="form-control"
-                                                                value="{{ Auth::user()->role_name }}" readonly>
-                                                            <div class="form-control-icon">
-                                                                <i class="bi bi-exclude"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
-                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Close</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </section>
         </div>
-
+        {{-- footer --}}
         <footer>
             <div class="footer clearfix mb-0 text-muted ">
                 <div class="float-start">
@@ -315,14 +251,53 @@
         </footer>
     </div>
     <script>
-        $(function() {
-            // $("#start_date").datepicker({
-            //     "dateFormat": 'dd-mm-yy'
-            // });
-            // $("#end_date").datepicker({
-            //     "dateFormat": 'dd-mm-yy'
-            // });
+        // default
+        const base_url = $('#base_url').val();
+
+        $("#chart_year").change(function() {
+            $(".apexcharts-canvas").remove();
+            deshboardHome();
         });
+
+        // Filter
+        $(document).on("click", "#filter", function(e) {
+            e.preventDefault();
+            var start_date = $("#start_date").val();
+            var end_date = $("#end_date").val();
+            var note = $("#note").val();
+            start_date = dateFormat(start_date, 'dd-mm-yyyy')
+            end_date = dateFormat(end_date, 'dd-mm-yyyy')
+
+            if (start_date == "" || end_date == "" || start_date == "NaN-NaN-NaN" || end_date == "NaN-NaN-NaN") {
+                alert("Both date required");
+                return false;
+            } else if (start_date >= end_date) {
+                alert("wrong date entered");
+                return false;
+            } else {
+                $('#records').DataTable().destroy();
+                fetch(start_date, end_date, note);
+                return true;
+            }
+        });
+
+        // Reset
+        $(document).on("click", "#reset", function(e) {
+            e.preventDefault();
+            $("#start_date").val(''); // empty value
+            $("#end_date").val('');
+            $("#note").val('');
+            $('#records').DataTable().destroy();
+            fetch("", "", "");
+        });
+
+
+        $('.increment').on('click', function(e) {
+            e.preventDefault();
+            let total = parseFloat($(this).val()) * quantity;
+            $("#total").val(total);
+        });
+
 
         function dateFormat(inputDate, format) {
             //parse the input date
@@ -348,13 +323,14 @@
         }
 
         // Fetch records
-        function fetch(start_date, end_date) {
+        function fetch(start_date, end_date, note) {
             $.ajax({
-                url: "{{ route('students/records') }}",
+                url: "{{ url('/api/students/records') }}",
                 type: "GET",
                 data: {
                     start_date: start_date,
-                    end_date: end_date
+                    end_date: end_date,
+                    note: note
                 },
                 dataType: "json",
                 success: function(data) {
@@ -396,113 +372,64 @@
                                     return `${row.date}`;
                                 }
                             },
-                        ]
+                        ],
                     });
+
+                }
+            });
+        }
+
+        function deshboardHome() {
+            // Line chart
+            let chart_year = $('#chart_year').val();
+
+            $.ajax({
+                url: "{{ url('/api/dashboard') }}",
+                type: "GET",
+                data: {
+                    chart_year: chart_year,
+                },
+                dataType: "json",
+                success: function(response) {
+                    var optionsLineChart = {
+                        series: [{
+                                name: 'รายรับ',
+                                data: response.inv_expenses_price
+                            },
+                            {
+                                name: 'รายจ่าย',
+                                data: response.inv_price
+                            }
+                        ],
+                        labels: response.month,
+                        chart: {
+                            type: 'area',
+                            width: "100%",
+                            height: 360
+                        },
+                        tooltip: {
+                            fillSeriesColor: false,
+                            onDatasetHover: {
+                                highlightDataSeries: false,
+                            },
+                            theme: 'light',
+                            style: {
+                                fontSize: '12px',
+                                fontFamily: 'Inter',
+                            },
+                        },
+                    };
+
+                    var lineChartEl = document.getElementById('chart-profile-visit');
+                    if (lineChartEl) {
+                        var lineChart = new ApexCharts(lineChartEl, optionsLineChart);
+                        lineChart.render();
+                    }
                 }
             });
         }
 
         fetch();
-
-        function deshboardHome() {
-            let monthNames = [
-                "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน",
-                "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม",
-                "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
-            ];
-            var month = [];
-            var income = [];
-            var expenses = [];
-
-            $.ajax({
-                url: "{{ route('api/dashboard') }}",
-                type: "GET",
-                data: {
-                    id_income02_lists: 'value',
-                },
-                dataType: "json",
-                success: function(Query) {
-                    let count = 0;
-                    for (let item in Query) {
-                        // console.log('รายจ่ายในเดือน '+monthNames[item]+' '+Query[item]['รายจ่าย'][0]['result']);
-                        month.push(monthNames[item]);
-                        income.push(Query[item]['รายรับ'][0]['result']);
-                        expenses.push(Query[item]['รายจ่าย'][0]['result']);
-                    }
-                    // console.log(month);
-
-                    // console.log(Query[5]['รายจ่าย'][0]['result']);
-                    // console.log(count);
-                    var optionsProfileVisit = {
-                        annotations: {
-                            position: 'back'
-                        },
-                        dataLabels: {
-                            enabled: false
-                        },
-                        chart: {
-                            type: 'bar',
-                            height: 300
-                        },
-                        fill: {
-                            opacity: 1
-                        },
-                        plotOptions: {},
-                        series: [{
-                            name: 'รายได้',
-                            data: income,
-                        }, {
-                            name: 'รายจ่าย',
-                            data: expenses,
-
-                        }],
-                        colors: ['#435ebe', '#FA501E'],
-                        xaxis: {
-                            categories: month
-
-                        },
-                    }
-                    var chartProfileVisit = new ApexCharts(document.querySelector("#chart-profile-visit"),
-                        optionsProfileVisit);
-                    chartProfileVisit.render();
-                }
-            });
-
-
-
-        }
         deshboardHome();
-        // Filter
-        $(document).on("click", "#filter", function(e) {
-            e.preventDefault();
-            var start_date = $("#start_date").val();
-            var end_date = $("#end_date").val();
-            start_date = dateFormat(start_date, 'dd-mm-yyyy')
-            end_date = dateFormat(end_date, 'dd-mm-yyyy')
-
-            console.log(start_date);
-            if (start_date == "" || end_date == "") {
-                alert("Both date required");
-            } else {
-                $('#records').DataTable().destroy();
-                fetch(start_date, end_date);
-            }
-        });
-
-        // Reset
-        $(document).on("click", "#reset", function(e) {
-            e.preventDefault();
-            $("#start_date").val(''); // empty value
-            $("#end_date").val('');
-            $('#records').DataTable().destroy();
-            fetch();
-        });
-
-
-        $('.increment').on('click', function(e) {
-            e.preventDefault();
-            let total = parseFloat($(this).val()) * quantity;
-            $("#total").val(total);
-        });
     </script>
 @endsection
