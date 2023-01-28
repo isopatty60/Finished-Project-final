@@ -24,10 +24,7 @@ class invItemExpensesController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    public function create()
-    {
-        return view('invItemExpenses.create');
-    }
+
 
     public function createInvItemExpenses($id)
     {

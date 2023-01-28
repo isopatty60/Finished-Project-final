@@ -71,7 +71,7 @@
                                     <td><a href="{{ route('invItems.show', $value->id) }}"
                                             class="inster">{{ $value->name }}</a></td>
                                     <td>{{ \Str::limit($value->detail, 100) }}</td>
-                                    <td>{{ $value->date }}</td>
+                                    <td>{{ date('d-m-Y', strtotime($value->date)) }}</td>
                                     <td> {{ number_format($value->price, 2) }} </td>
                                     <td>{{ $value->note }}</td>
                                     <td>

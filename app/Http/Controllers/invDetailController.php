@@ -19,13 +19,6 @@ class invDetailController extends Controller
         return view('invDetails.index', compact(['invDetails', 'invDetailsName']))
             ->with('i', (request()->input('page', 1) - 1) * 10);
     }
-
-
-    public function create()
-    {
-        return view('invDetails.create');
-    }
-
     public function createInvDetails($id)
     {
         //return response()->json($id);
@@ -41,16 +34,18 @@ class invDetailController extends Controller
             'Month_id' => 'required',
         ]);
 
-
-        invDetails::create($request->all());
+        $data = [
+            'name' => $request->name,
+            'detail' => $request->detail,
+            'price' => $request->price,
+            'note' => $request->note,
+            'date' => date('Y-m-d', strtotime($request->date)),
+            'Month_id' => $request->Month_id,
+        ];
+        invDetails::create($data);
 
         return redirect('/invDetails/' . $request->Month_id)
             ->with('success', ' create successfully');
-
-        // Income2::create($request->all());
-
-        // return redirect()->route('incomes.index')
-        //                 ->with('success','Income2 created successfully.');
     }
 
     public function show($id)
@@ -77,10 +72,16 @@ class invDetailController extends Controller
             'name' => 'required',
             'detail' => 'required',
             'date' => 'required',
-
         ]);
 
-        invDetails::find($id)->update($request->all());
+        $data = [
+            'name' => $request->name,
+            'detail' => $request->detail,
+            'price' => $request->price,
+            'note' => $request->note,
+            'date' => date('Y-m-d', strtotime($request->date))
+        ];
+        invDetails::find($id)->update($data);
         $inv = invDetails::find($id);
 
         return redirect('/invDetails/' . $inv->Month_id);

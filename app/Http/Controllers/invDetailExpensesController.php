@@ -31,8 +31,16 @@ class invDetailExpensesController extends Controller
             'date' => 'required',
             'month_expenses_id' => 'required',
         ]);
+        $data = [
+            'name' => $request->name,
+            'detail' => $request->detail,
+            'price' => $request->price,
+            'note' => $request->note,
+            'date' => date('Y-m-d', strtotime($request->date)),
+            'month_expenses_id' => $request->month_expenses_id,
+        ];
+        invDetailExpenses::create($data);
 
-        invDetailExpenses::create($request->all());
         return redirect('/invDetailExpenses/' . $request->month_expenses_id)
             ->with('success', ' create successfully');
     }
@@ -61,10 +69,15 @@ class invDetailExpensesController extends Controller
             'date' => 'required',
 
         ]);
-
-        invDetailExpenses::find($id)->update($request->all());
+        $data = [
+            'name' => $request->name,
+            'detail' => $request->detail,
+            'price' => $request->price,
+            'note' => $request->note,
+            'date' => date('Y-m-d', strtotime($request->date))
+        ];
+        invDetailExpenses::find($id)->update($data);
         $inv = invDetailExpenses::find($id);
-
         return redirect('/invDetailExpenses/' . $inv->month_expenses_id);
 
         // $Income2->update($request->all());
