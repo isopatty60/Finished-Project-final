@@ -99,13 +99,8 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>หมายเหตุ:</strong>
-                                        <div class="select">
-                                            <select name="note" class="form-select">
-                                                <option selected disabled>{{ $invDetails->note }}</option>
-                                                <option value="รายรับ">รายรับ</option>
-                                                <option value="รายจ่าย">รายจ่าย</option>
-                                            </select>
-                                        </div>
+                                        <input type="text" class="form-control" name="note"
+                                            value="{{ $invDetails->note }}" readonly>
                                     </div>
                                     <br>
                                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
@@ -113,6 +108,5 @@
                                         <a class="btn btn-primary" href="javascript:history.back()"> กลับ</a>
                                     </div>
                                 </div>
-
             </form>
         @endsection

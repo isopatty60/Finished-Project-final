@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex">
-	
+
 
     <title>Invoice</title>
 
@@ -14,52 +15,56 @@
     <style>
         .text-right {
             text-align: right;
-        } 
-		@font-face {
+        }
+
+        @font-face {
             font-family: 'THSarabunNew';
             font-style: normal;
             font-weight: normal;
             src: url("{{ public_path('fonts/THSarabunNew.ttf') }}") format('truetype');
         }
+
         @font-face {
             font-family: 'THSarabunNew';
             font-style: normal;
             font-weight: bold;
             src: url("{{ public_path('fonts/THSarabunNew Bold.ttf') }}") format('truetype');
         }
+
         @font-face {
             font-family: 'THSarabunNew';
             font-style: italic;
             font-weight: normal;
             src: url("{{ public_path('fonts/THSarabunNew Italic.ttf') }}") format('truetype');
         }
+
         @font-face {
             font-family: 'THSarabunNew';
             font-style: italic;
             font-weight: bold;
             src: url("{{ public_path('fonts/THSarabunNew BoldItalic.ttf') }}") format('truetype');
         }
- 
+
         body {
             font-family: "THSarabunNew";
         }
-       
     </style>
 
 </head>
+
 <body class="login-page" style="background: white">
 
 
     <div>
-    
+
         <div class="row">
             <div class="col-xs-7">
                 <h4>From:</h4>
-                <strong>Company IDEACLE CO.,LTD</strong><br>
-                94 Moo 16. 
+                <strong>Company IDEACLE</strong><br>
+                94 Moo 16.
                 Pa Phai sub district,<br>
-				San Sai district,
-				Chiang Mai 50290
+                San Sai district,
+                Chiang Mai 50290
                 <!-- P: (416) 123-4567 <br>
                 E: copmany@company.com <br> -->
 
@@ -67,11 +72,12 @@
             </div>
 
             <div class="col-xs-4">
-                <img src="https://res.cloudinary.com/dqzxpn5db/image/upload/v1537151698/website/logo.png" alt="logo">
+                <img src="https://res.cloudinary.com/dqzxpn5db/image/upload/v1537151698/website/logo.png"
+                    alt="logo">
             </div>
         </div>
 
-        <div style="margin-bottom: 0px">&nbsp;</div>	
+        <div style="margin-bottom: 0px">&nbsp;</div>
 
         <div class="row">
             <div class="col-xs-6">
@@ -86,21 +92,21 @@
             <div class="col-xs-5">
                 <table style="width: 100%">
                     <tbody>
-                        
+
                         <tr>
                             <th> Invoice Num: </th>
-                            
-                            
-                        </tr>
-                       
 
-                        
+
+                        </tr>
+
+
+
                         <tr>
                             <th> Invoice Date: </th>
-                           
-                            
+
+
                         </tr>
-                        
+
                     </tbody>
                 </table>
 
@@ -123,67 +129,66 @@
                     <th>Name</th>
                     <th>Detail</th>
                     <th>Price</th>
-					
-                    
 
-                    
+
+
+
                 </tr>
             </thead>
             <tbody>
-			@foreach ($Customer_lists as $i => $value)
-                <tr>
-                    
-                    <td>{{ $value->name }}</td>
-                    <td>{{ $value->detail }}</td>
-                    <td>{{ $value->price }}</td>
-					
-                    
-                   
-        </div>
-                </tr>
-                @endforeach
-               
-            </tbody>
-        </table>
+                @foreach ($Customer_lists as $i => $value)
+                    <tr>
 
-            <div class="row">
-                <div class="col-xs-6"></div>
-                <div class="col-xs-5">
-                    <table style="width: 100%">
-                        <tbody>
-                            <tr class="well" style="padding: 5px">
-                                <!-- <th style="padding: 5px"><div> Balance Due (CAD) </div></th>
+                        <td>{{ $value->name }}</td>
+                        <td>{{ $value->detail }}</td>
+                        <td>{{ $value->price }}</td>
+
+
+
+    </div>
+    </tr>
+    @endforeach
+
+    </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col-xs-6"></div>
+        <div class="col-xs-5">
+            <table style="width: 100%">
+                <tbody>
+                    <tr class="well" style="padding: 5px">
+                        <!-- <th style="padding: 5px"><div> Balance Due (CAD) </div></th>
                                 <td style="padding: 5px" class="text-right"><strong> $600 </strong></td> -->
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div style="margin-bottom: 0px">&nbsp;</div>
-
-            <div class="row">
-                <div class="col-xs-8 invbody-terms">
-                    Thank you for your business. <br>
-                    <br>
-                    <!-- <h4>Payment Terms</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eius quia, aut doloremque, voluptatibus quam ipsa sit sed enim nam dicta. Soluta eaque rem necessitatibus commodi, autem facilis iusto impedit!</p> -->
-                </div>
-            </div>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+    </div>
 
-        <!-- <h2>JavaScript new Date()</h2>
+    <div style="margin-bottom: 0px">&nbsp;</div>
+
+    <div class="row">
+        <div class="col-xs-8 invbody-terms">
+            Thank you for your business. <br>
+            <br>
+            <!-- <h4>Payment Terms</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eius quia, aut doloremque, voluptatibus quam ipsa sit sed enim nam dicta. Soluta eaque rem necessitatibus commodi, autem facilis iusto impedit!</p> -->
+        </div>
+    </div>
+    </div>
+
+    <!-- <h2>JavaScript new Date()</h2>
 <p>Using new Date(), creates a new date object with the current date and time:</p>
 
 <p id="demo"></p>
 
 
-       
+
 
     </body>
  <script>
-        const d = new Date();
-            document.getElementById("demo").innerHTML = d;
-            </script>
+     const d = new Date();
+     document.getElementById("demo").innerHTML = d;
+ </script>
     </html> -->
-

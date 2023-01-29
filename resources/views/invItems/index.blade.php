@@ -34,9 +34,10 @@
             <section class="section">
                 <div class="card">
                     <div class="card-header">
-                        <a class="btn btn-success" href="{{ route('createInvItems', ['id' => $id]) }}"> เพิ่มรายการ</a>
+                        <a class="btn btn-success" href="{{ route('createInvItems', ['id' => $id]) }}">
+                            เพิ่มรายละเอียดเพิ่มเติม</a>
                         <a href="/pdfInvItems/{{ $id }} ?>" target="_blank" class="btn btn-success">
-                            <span>รายงาน</span></a>
+                            <span>รายงานรายละเอียดเพิ่มเติม</span></a>
                         <a href="/invDetails/{{ $invDetailsName->Month_id }}" class="btn btn-success">
                             <span>กลับ</span></a>
                     </div>
@@ -89,7 +90,7 @@
                                 </div>
                                 <div class="float-end">
                                     <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                            href="">IDEACLE CO.,LTD</a></p>
+                                            href="">IDEACLE</a></p>
                                 </div>
                             </div>
                         </footer>

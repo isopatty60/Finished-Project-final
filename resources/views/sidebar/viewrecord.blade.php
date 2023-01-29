@@ -141,7 +141,7 @@
 
 
                 <li class="sidebar-title">หมายเหตุ &amp; อืนๆ</li>
-                <!-- <li class="sidebar-item  has-sub">
+                {{-- <!-- <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-file-earmark-medical-fill"></i>
                         <span>Form Elements</span>
@@ -162,7 +162,7 @@
                             <a href="{{ route('form/view/detail') }}">View Detail</a>
                         </li>
                     </ul>
-                </li> -->
+                </li> --> --}}
                 <li class="sidebar-item">
                     <a href="{{ route('logout') }}" class='sidebar-link'>
                         <i class="bi bi-box-arrow-right"></i>

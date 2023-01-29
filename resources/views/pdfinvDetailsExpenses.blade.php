@@ -102,7 +102,7 @@
             @php
                 $sum_total = 0;
             @endphp
-            @foreach ($invDetails as $i => $value)
+            @foreach ($invDetailExpenses as $i => $value)
                 @php
                     $sum_total = $sum_total + $value->price;
                 @endphp

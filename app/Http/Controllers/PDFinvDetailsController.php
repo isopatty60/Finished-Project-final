@@ -7,14 +7,6 @@ use PDF;
 
 class PDFinvDetailsController extends Controller
 {
-    // public function pdf()
-    // {
-    //     $posts = Post::all();
-    //     $pdf = PDF::loadView('pdf', ['posts' => $posts]);
-    //     return @$pdf->stream();
-    //     // return $pdf->download('test.pdf');
-    // }
-
     public function PDFInvDetails($id)
     {
         $invDetails = invDetails::where('Month_id', $id)->get();

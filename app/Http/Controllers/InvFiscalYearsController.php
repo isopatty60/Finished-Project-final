@@ -40,6 +40,7 @@ class InvFiscalYearsController extends Controller
 
     public function edit(InvFiscalYears $fiscal_year)
     {
+        dd($fiscal_year);
         return view('InvFiscalYears.edit', compact('fiscal_year'));
     }
 

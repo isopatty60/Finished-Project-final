@@ -121,8 +121,8 @@
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
-                        <label for="note" class="label-control">หมายเหตุ:</label>
-                        <input id="note" type="text" value="รายรับ" name="note" class="form-control" disabled>
+                        <strong>หมายเหตุ:</strong>
+                        <input type="text" class="form-control" name="note" value="รายรับ" readonly>
                     </div>
                 </div>
 

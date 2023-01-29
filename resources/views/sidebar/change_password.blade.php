@@ -17,7 +17,7 @@
                 <li class="sidebar-item">
                     <a href="{{ route('home') }}" class='sidebar-link'>
                         <i class="bi bi-house-fill"></i>
-                        <span>Dashboard</span>
+                        <span>แดชบอร์ด</span>
                     </a>
                 </li>
                 <li class="sidebar-item">

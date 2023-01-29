@@ -95,16 +95,9 @@
                             <input type="number" name="price" class="form-control" placeholder="ราคา" step="0.01">
                         </div>
                     </div>
-
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <strong>หมายเหตุ:</strong>
-                        <div class="select">
-                            <select name="note" class="form-select">
-                                <option selected disabled>เลือกรายการ</option>
-                                <option value="รายรับ">รายรับ</option>
-                                <option value="รายจ่าย">รายจ่าย</option>
-                            </select>
-                        </div>
+                        <input type="text" class="form-control" name="note" value="รายรับ" readonly>
                     </div>
                 </div>
                 <script type="text/javascript">

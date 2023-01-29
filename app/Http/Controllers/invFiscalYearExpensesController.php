@@ -11,7 +11,6 @@ class invFiscalYearExpensesController extends Controller
     public function index()
     {
         $invFiscalYearExpenses = invFiscalYearExpenses::latest()->paginate();
-
         return view('invFiscalYearExpenses.index ', compact('invFiscalYearExpenses'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -39,9 +38,10 @@ class invFiscalYearExpensesController extends Controller
         return view('invFiscalYearExpenses.show', compact('invFiscalYearExpenses'));
     }
 
-    public function edit(invFiscalYearExpenses $invFiscalYearExpenses)
+    public function edit(invFiscalYearExpenses $FiscalYearExpenses)
     {
-        return view('invFiscalYearExpenses.edit', compact('invFiscalYearExpenses'));
+
+        return view('invFiscalYearExpenses.edit', compact('FiscalYearExpenses'));
     }
 
     public function update(Request $request, $id)
@@ -50,16 +50,15 @@ class invFiscalYearExpensesController extends Controller
             'title' => 'required',
             'description' => 'required',
         ]);
-
         invFiscalYearExpenses::find($id)->update($request->all());
         return redirect()->route('invFiscalYearExpenses.index')
             ->with('success', 'invFiscalYearExpenses updated successfully');
     }
 
-    public function destroy(invFiscalYearExpenses $invFiscalYearExpenses)
+    public function destroy(invFiscalYearExpenses $FiscalYearExpenses)
     {
-        $invFiscalYearExpenses->delete();
-
+        dd($FiscalYearExpenses);
+        $FiscalYearExpenses->delete();
         return redirect()->route('invFiscalYearExpenses.index')
             ->with('success', 'fiscal_years deleted successfully');
     }

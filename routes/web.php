@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\PDFInvItemsController;
 use App\Http\Controllers\PDFinvDetailsController;
+use App\Http\Controllers\PDFinvDetailExpensesController;
+use App\Http\Controllers\PDFInvItemsExpensesController;
+
+
 
 // --------------------------------------------------------------------------
 use App\Http\Controllers\invReceiptListsController;
@@ -109,7 +113,7 @@ Route::put('fiscal_years/update/{id}', [invFiscalYearsController::class, 'update
 
 // ----------------------------- form InvFiscalYearsExpenses ------------------------------//
 Route::resource('invFiscalYearExpenses', invFiscalYearExpensesController::class)->middleware('auth');
-Route::put('invFiscalYearExpenses/update/{id}', [invFiscalYearExpensesController::class, 'update'])->name('fiscalYearExpenses.update')->middleware('auth');
+Route::put('invFiscalYearExpenses/update/{id}', [invFiscalYearExpensesController::class, 'update'])->name('invFiscalYearExpenses.update')->middleware('auth');
 
 // ----------------------------- form InvMonths ------------------------------//
 Route::resource('InvMonths', InvMonthsController::class)->middleware('auth');
@@ -131,7 +135,7 @@ Route::put('update_invDetails/{id}', [invDetailController::class, 'update'])->na
 // ----------------------------- form invDetails Expenses ------------------------------//
 Route::resource('invDetailExpenses', invDetailExpensesController::class)->middleware('auth');
 Route::get('/invDetailExpenses/create/{id}', [invDetailExpensesController::class, 'createInvDetailExpenses'])->name('createInvDetailExpenses')->middleware('auth');
-Route::put('updateInvDetailExpenses/{id}', [invDetailExpensesController::class, 'updateInvDetaisExpenses'])->name('updateInvDetailExpenses')->middleware('auth');
+Route::put('updateInvDetailExpenses/{id}', [invDetailExpensesController::class, 'updateInvDetailExpenses'])->name('updateInvDetailExpenses')->middleware('auth');
 
 // ----------------------------- form invItems Image ------------------------------//
 Route::resource('invItems', invItemsController::class)->middleware('auth');
@@ -147,6 +151,8 @@ Route::put('updateInvItemExpenses/{id}', [invItemExpensesController::class, 'upd
 Route::get('/pdf/{id}', [PDFController::class, 'pdf'])->middleware('auth');
 Route::get('/pdfInvDetails/{id}', [PDFinvDetailsController::class, 'PDFInvDetails'])->middleware('auth');
 Route::get('/pdfInvItems/{id}', [PDFInvItemsController::class, 'pdfInvItems'])->middleware('auth');
+Route::get('/pdfInvDetailExpenses/{id}', [PDFinvDetailExpensesController::class, 'pdfInvDetailExpenses'])->middleware('auth');
+Route::get('/pdfInvItemExpenses/{id}', [PDFInvItemsExpensesController::class, 'pdfInvItemExpenses'])->middleware('auth');
 
 // ----------------------------- form income2page ------------------------------//
 Route::resource('income2page', Income2pageController::class)->middleware('auth');

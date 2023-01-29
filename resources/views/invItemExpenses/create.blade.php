@@ -122,28 +122,23 @@
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <strong>หมายเหตุ:</strong>
-                        <div class="select">
-                            <select name="note" class="form-select">
-                                <option selected disabled>เลือกรายการ</option>
-                                <option value="รายรับ">รายรับ</option>
-                                <option value="รายจ่าย">รายจ่าย</option>
-                            </select>
-                        </div>
+                        <input type="text" class="form-control" name="note" value="รายจ่าย" readonly>
                     </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-12 col-md-12" hidden>
-                    <div class="form-group">
-                        <strong>detail_expenses_id:</strong>
-                        <input type="number" name="detail_expenses_id" class="form-control" value={{ $id }}>
-                    </div>
-                </div>
-                <br>
-                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary">ตกลง</button>
-                    <a class="btn btn-primary" href="javascript:history.back()"> กลับ</a>
                 </div>
         </div>
 
-        </form>
-    @endsection
+        <div class="col-xs-12 col-sm-12 col-md-12" hidden>
+            <div class="form-group">
+                <strong>detail_expenses_id:</strong>
+                <input type="number" name="detail_expenses_id" class="form-control" value={{ $id }}>
+            </div>
+        </div>
+        <br>
+        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">ตกลง</button>
+            <a class="btn btn-primary" href="javascript:history.back()"> กลับ</a>
+        </div>
+    </div>
+
+    </form>
+@endsection

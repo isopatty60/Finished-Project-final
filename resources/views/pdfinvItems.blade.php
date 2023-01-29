@@ -59,7 +59,7 @@
             <div class="col-xs-7">
 
 
-                <strong>Company IDEACLE CO.,LTD</strong><br>
+                <strong>Company IDEACLE</strong><br>
                 94 Moo 16.
                 Pa Phai sub district,<br>
                 San Sai district,
@@ -71,28 +71,28 @@
             </div>
 
             <div class="col-xs-4">
-                <img src="https://res.cloudinary.com/dqzxpn5db/image/upload/v1537151698/website/logo.png"
-                    alt="logo">
+                <img src="assets/images/logo/logo.png" style="height: 8%">
             </div>
         </div>
+    </div>
 
-        <table style="width: 100%; margin-bottom: 20px">
+    <table style="width: 100%; margin-bottom: 20px">
 
-            <tbody>
+        <tbody>
 
-                <tr class="well" style="padding: 5px">
-                    <!-- <th style="padding: 5px"><div> Balance Due (CAD) </div></th> -->
-                    <!-- <td style="padding: 5px" class="text-right"><strong> $600 </strong></td> -->
-                </tr>
-            </tbody>
-        </table>
+            <tr class="well" style="padding: 5px">
+                <!-- <th style="padding: 5px"><div> Balance Due (CAD) </div></th> -->
+                <!-- <td style="padding: 5px" class="text-right"><strong> $600 </strong></td> -->
+            </tr>
+        </tbody>
+    </table>
     </div>
     </div>
 
     <table class="table">
         <thead style="background: #F5F5F5;">
             <tr>
-                <th>รูปภาพ</th>
+
                 <th>ชื่อ</th>
                 <th>รายลเอียด</th>
                 <th>ราคา</th>
@@ -100,20 +100,26 @@
             </tr>
         </thead>
         <tbody>
-
+            @php
+                $sum_total = 0;
+            @endphp
             @foreach ($invItems as $i => $value)
+                @php
+                    $sum_total = $sum_total + $value->price;
+                @endphp
                 <tr>
-                    <td><img src="{{ asset('/image_product/' . $value->image_product) }}" alt="{{ $value->name }}"
-                            width="100px"></td>
                     <td>{{ $value->name }}</td>
                     <td>{{ $value->detail }}</td>
-                    <td>{{ $value->price }}</td>
+                    <td>{{ number_format($value->price, 2) }} </td>
                     <td>{{ $value->date }}</td>
 
                     </div>
                 </tr>
             @endforeach
-
+            <tr>
+                <td colspan="2">รวม</td>
+                <td>{{ number_format($sum_total, 2) }}</td>
+            </tr>
         </tbody>
     </table>
 

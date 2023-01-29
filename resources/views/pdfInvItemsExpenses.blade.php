@@ -8,10 +8,8 @@
 
 
     <title>Invoice</title>
-
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
     <style>
         .text-right {
             text-align: right;
@@ -49,17 +47,13 @@
             font-family: "THSarabunNew";
         }
     </style>
-
 </head>
 
 <body class="login-page" style="background: white">
-
+    <strong>รายการ {{ $invDetailsName->name }}</strong>
     <div>
         <div class="row">
             <div class="col-xs-7">
-                <strong>
-                    รายการ {{ $invDetailsName->name }}
-                </strong><br>
                 <strong>Company IDEACLE</strong><br>
                 94 Moo 16.
                 Pa Phai sub district,<br>
@@ -75,16 +69,17 @@
                 <img src="assets/images/logo/logo.png" style="height: 8%">
             </div>
         </div>
-    </div>
 
-    <table style="width: 100%; margin-bottom: 20px">
-        <tbody>
-            <tr class="well" style="padding: 5px">
-                <!-- <th style="padding: 5px"><div> Balance Due (CAD) </div></th> -->
-                <!-- <td style="padding: 5px" class="text-right"><strong> $600 </strong></td> -->
-            </tr>
-        </tbody>
-    </table>
+        <table style="width: 100%; margin-bottom: 20px">
+
+            <tbody>
+
+                <tr class="well" style="padding: 5px">
+                    <!-- <th style="padding: 5px"><div> Balance Due (CAD) </div></th> -->
+                    <!-- <td style="padding: 5px" class="text-right"><strong> $600 </strong></td> -->
+                </tr>
+            </tbody>
+        </table>
     </div>
     </div>
 
@@ -92,27 +87,26 @@
         <thead style="background: #F5F5F5;">
             <tr>
                 <th>ชื่อ</th>
-                <th>รายละเอียด</th>
+                <th>รายลเอียด</th>
                 <th>ราคา</th>
-                <th>เดือน</th>
-                <th>หมายเหตุ</th>
+                <th>วันที่</th>
             </tr>
         </thead>
         <tbody>
             @php
                 $sum_total = 0;
             @endphp
-            @foreach ($invDetails as $i => $value)
-                @php
-                    $sum_total = $sum_total + $value->price;
-                @endphp
+            @foreach ($invItemExpenses as $i => $value)
                 <tr>
+                    @php
+                        $sum_total = $sum_total + $value->price;
+                    @endphp
                     <td>{{ $value->name }}</td>
                     <td>{{ $value->detail }}</td>
-                    <td> {{ number_format($value->price, 2) }} </td>
+                    <td>{{ number_format($value->price, 2) }} </td>
                     <td>{{ $value->date }}</td>
-                    <td>{{ $value->note }}</td>
 
+                    </div>
                 </tr>
             @endforeach
             <tr>
@@ -121,7 +115,6 @@
             </tr>
         </tbody>
     </table>
-
     <div class="row">
         <div class="col-xs-6"></div>
         <div class="col-xs-5">

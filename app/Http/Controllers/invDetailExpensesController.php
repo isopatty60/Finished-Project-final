@@ -55,13 +55,11 @@ class invDetailExpensesController extends Controller
 
     public function edit($id)
     {
-        // return view('income2.edit',compact('Income2'));
-
         $invDetails = invDetailExpenses::find($id);
         return view('invDetailExpenses.edit', compact('invDetails'));
     }
 
-    public function update(Request $request,  $id)
+    public function updateInvDetailExpenses(Request $request,  $id)
     {
         $request->validate([
             'name' => 'required',

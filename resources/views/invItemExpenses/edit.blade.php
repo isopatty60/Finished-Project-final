@@ -105,29 +105,25 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>หมายเหตุ:</strong>
-                                        <div class="select">
-                                            <select name="note" value="{{ $invItemExpenses->note }}" class="form-select">
-                                                <option selected disabled>{{ $invItemExpenses->note }}</option>
-                                                <option value="รายรับ">รายรับ</option>
-                                                <option value="รายจ่าย">รายจ่าย</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <div class="form-group">
-                                            <strong>รูปภาพ:</strong>
-                                            <input type="file" name="image_product" class="form-control"
-                                                placeholder="รูปภาพ" enctype='multipart/form-data'>
-                                            <img src="/image_product/{{ $invItemExpenses->image_product }}" width="300px">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                        <button type="submit" class="btn btn-primary">ตกลง</button>
-                                        <a class="btn btn-primary" href="javascript:history.back()"> กลับ</a>
+                                        <input type="text" class="form-control" name="note"
+                                            value="{{ $invItemExpenses->note }}" readonly>
                                     </div>
                                 </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>รูปภาพ:</strong>
+                                        <input type="file" name="image_product" class="form-control" placeholder="รูปภาพ"
+                                            enctype='multipart/form-data'>
+                                        <img src="/image_product/{{ $invItemExpenses->image_product }}" width="300px">
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                    <button type="submit" class="btn btn-primary">ตกลง</button>
+                                    <a class="btn btn-primary" href="javascript:history.back()"> กลับ</a>
+                                </div>
+                            </div>
 
             </form>
         @endsection

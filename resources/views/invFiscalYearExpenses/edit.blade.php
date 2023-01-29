@@ -46,7 +46,7 @@
                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
             </head>
-            <form action="{{ route('fiscalYearExpenses.update', $invFiscalYearExpenses->id) }}">
+            <form action="{{ route('invFiscalYearExpenses.update', $FiscalYearExpenses->id) }}">
                 @csrf
                 @method('PUT')
                 <div class="col-12">
@@ -59,28 +59,16 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>ชื่อ:</strong>
-                                        <input type="text" name="title" value="{{ $invFiscalYearExpenses->title }}"
+                                        <input type="text" name="title" value="{{ $FiscalYearExpenses->title }}"
                                             class="form-control" placeholder="Name">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Description:</strong>
-                                        <textarea class="form-control" style="height:150px" name="description" placeholder="Detail">{{ $invFiscalYearExpenses->description }}</textarea>
+                                        <textarea class="form-control" style="height:150px" name="description" placeholder="Detail">{{ $FiscalYearExpenses->description }}</textarea>
                                     </div>
                                 </div>
-                                {{-- <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <strong>Date:</strong>
-                                        <input value="{{ $fiscal_year->date }}" class="date form-control" name="date"
-                                            type="text" placeholder="Date">
-                                    </div>
-                                </div>
-                                <script type="text/javascript">
-                                    $('.date').datepicker({
-                                        format: 'dd-mm-yyyy'
-                                    });
-                                </script> --}}
                                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>

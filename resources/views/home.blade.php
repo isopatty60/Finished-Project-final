@@ -291,13 +291,11 @@
             fetch("", "", "");
         });
 
-
         $('.increment').on('click', function(e) {
             e.preventDefault();
             let total = parseFloat($(this).val()) * quantity;
             $("#total").val(total);
         });
-
 
         function dateFormat(inputDate, format) {
             //parse the input date
@@ -374,7 +372,6 @@
                             },
                         ],
                     });
-
                 }
             });
         }

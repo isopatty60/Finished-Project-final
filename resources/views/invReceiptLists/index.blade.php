@@ -87,7 +87,7 @@
                                 </div>
                                 <div class="float-end">
                                     <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                            href="">IDEACLE CO.,LTD</a></p>
+                                            href="">IDEACLE</a></p>
                                 </div>
                             </div>
                         </footer>

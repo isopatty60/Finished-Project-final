@@ -46,11 +46,14 @@ class invItemsController extends Controller
             'image_product' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-
-        $input = $request->all();
-
-        // => $input['name', 'detail','date', ...]
-
+        $input = [
+            'name' => $request->name,
+            'detail' => $request->detail,
+            'price' => $request->price,
+            'note' => $request->note,
+            'date' => date('Y-m-d', strtotime($request->date)),
+            'detail_id' => $request->detail_id,
+        ];
         if ($image = $request->file('image_product')) {
             $destinationPath = 'image_product/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
@@ -60,63 +63,18 @@ class invItemsController extends Controller
             unset($input['image']);
         }
 
-
         invItems::create($input);
-        // return redirect()->route('incomes.index')
-        //                 ->with('success','Product created successfully.');
-        // return back()->with('success','Product_subdata deleted successfully');
-
         return redirect('/invItems/' . $input['detail_id'])->with('success', ' create successfully');
-
-        // success V1
-        // return redirect('/income3/'.$request->id_income03_lists)->with('success',' create successfully');
-
-        // $product->update($input);
-
-        // return redirect()->route('products.index')
-        //                 ->with('success','Product updated successfully');
-
-        // $input = $request->all();
-
-        // if ($image = $request->file('image_product')) {
-        //     $name =  time()."_".$request->name. '.jpg';
-        //     Storage::disk('local')->putFileAs(
-        //         'public/image_product',
-        //         request()->file('image_product'),
-        //         $name
-        //     );
-
-        //     $input['image_product'] = $name;
-        // }
-
-
-
-        // Storage::putFile('image_product', $request->file('image_product'));
-
-
-        // Income3::create($input);
-
-
-
-        // return redirect()->back()->with('success',' create successfully');
-        return back()->with('success', 'Product_subdata deleted successfully');
-
-        // Income3::create($request->all());
-
-        // return redirect()->route('incomes.index')
-        //                 ->with('success','Income3 created successfully.');
     }
     public function show($id)
     {
-        // return view('income3.show',compact('Income3'));
+        $sum = invDetails::sum('price');
         $invDetailsName = invDetails::find($id);
         $invItems = DB::table('inv_items')->where('detail_id', $id)->paginate();
         return view('invItems.index', compact(['invItems', 'id', 'invDetailsName']));
     }
     public function edit($id)
     {
-        // return view('income3.edit',compact('Income3'));
-
         $invItems = invItems::find($id);
         return view('invItems.edit', compact('invItems'));
     }
@@ -127,10 +85,7 @@ class invItemsController extends Controller
         $inv->detail = $request->input("detail");
         $inv->date = $request->input("date");
         $inv->price = $request->input("price");
-
-
         $input = $request->all();
-
         if ($request->file('image_product')) {
             $image = $request->file('image_product');
             $destinationPath = 'image_product/';
@@ -140,14 +95,11 @@ class invItemsController extends Controller
         } else {
             unset($input['image']);
         }
-
         $inv->update($input);
         $inv->update();
-
         return redirect('/invItems/' . $inv->detail_id)->with('success', ' update successfully');
     }
     public function destroy($id)
-
     {
         invItems::find($id)->delete();
         return back()->with('success', 'Product_subdata deleted successfully');

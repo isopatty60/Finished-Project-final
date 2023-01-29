@@ -33,7 +33,6 @@ class invDetailController extends Controller
             'date' => 'required',
             'Month_id' => 'required',
         ]);
-
         $data = [
             'name' => $request->name,
             'detail' => $request->detail,
@@ -43,7 +42,6 @@ class invDetailController extends Controller
             'Month_id' => $request->Month_id,
         ];
         invDetails::create($data);
-
         return redirect('/invDetails/' . $request->Month_id)
             ->with('success', ' create successfully');
     }

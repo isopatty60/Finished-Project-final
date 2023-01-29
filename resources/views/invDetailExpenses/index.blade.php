@@ -40,10 +40,10 @@
                 <div class="card">
                     <div class="card-header">
                         <a class="btn btn-success" href="{{ route('createInvDetailExpenses', ['id' => $id]) }}">
-                            เพิ่มรายการ</a>
-                        <a href="/pdfInvDetails/{{ $id }} ?>" target="_blank" class="btn btn-success">
-                            <span>รายงาน</span></a>
-                        <a href="/InvMonths/{{ $invDetailsName->Fiscal_year_id }}" class="btn btn-success">
+                            เพิ่มรายการรายละเอียด</a>
+                        <a href="/pdfInvDetailExpenses/{{ $id }} ?>" target="_blank" class="btn btn-success">
+                            <span>รายงานรายละเอียด</span></a>
+                        <a href="/invMonthExpenses/{{ $invDetailsName->fiscal_year_id_expenses }}" class="btn btn-success">
                             <span>กลับ</span></a>
 
                     </div>
@@ -141,7 +141,7 @@
                                 </div>
                                 <div class="float-end">
                                     <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                            href="">IDEACLE CO.,LTD</a></p>
+                                            href="">IDEACLE</a></p>
                                 </div>
                             </div>
                         </footer>

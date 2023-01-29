@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\invItemExpenses;
-use App\Models\INV_Details_expenses;
+use App\Models\invDetailExpenses;
 use Illuminate\support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -43,11 +43,14 @@ class invItemExpensesController extends Controller
             'image_product' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-
-        $input = $request->all();
-
-        // => $input['name', 'detail','date', ...]
-
+        $input = [
+            'name' => $request->name,
+            'detail' => $request->detail,
+            'price' => $request->price,
+            'note' => $request->note,
+            'date' => date('Y-m-d', strtotime($request->date)),
+            'detail_expenses_id' => $request->detail_expenses_id,
+        ];
         if ($image = $request->file('image_product')) {
             $destinationPath = 'image_product/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
@@ -56,14 +59,12 @@ class invItemExpensesController extends Controller
         } else {
             unset($input['image']);
         }
-
-
         invItemExpenses::create($input);
         return redirect('/invItemExpenses/' . $input['detail_expenses_id'])->with('success', ' create successfully');
     }
     public function show($id)
     {
-        $invDetailsName = invItemExpenses::find($id);
+        $invDetailsName = invDetailExpenses::find($id);
         $invItemExpenses = DB::table('inv_item_expenses')->where('detail_expenses_id', $id)->paginate();
         return view('invItemExpenses.index', compact(['invItemExpenses', 'id', 'invDetailsName']));
     }
@@ -79,10 +80,7 @@ class invItemExpensesController extends Controller
         $inv->detail = $request->input("detail");
         $inv->date = $request->input("date");
         $inv->price = $request->input("price");
-
-
         $input = $request->all();
-
         if ($request->file('image_product')) {
             $image = $request->file('image_product');
             $destinationPath = 'image_product/';
@@ -92,14 +90,11 @@ class invItemExpensesController extends Controller
         } else {
             unset($input['image']);
         }
-
         $inv->update($input);
         $inv->update();
-
         return redirect('/invItemExpenses/' . $inv->detail_expenses_id)->with('success', ' update successfully');
     }
     public function destroy($id)
-
     {
         invItemExpenses::find($id)->delete();
         return back()->with('success', 'Product_subdata deleted successfully');

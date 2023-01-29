@@ -35,9 +35,9 @@
                 <div class="card">
                     <div class="card-header">
                         <a class="btn btn-success" href="{{ route('createInvItemExpenses', ['id' => $id]) }}">
-                            เพิ่มรายการ</a>
-                        <a href="/pdfInvItems/{{ $id }} ?>" target="_blank" class="btn btn-success">
-                            <span>รายงาน</span></a>
+                            เพิ่มรายละเอียดเพิ่มเติม</a>
+                        <a href="/pdfInvItemExpenses/{{ $id }} ?>" target="_blank" class="btn btn-success">
+                            <span>รายงานรายละเอียดเพิ่มเติม</span></a>
                         <a href="/invDetailExpenses/{{ $invDetailsName->month_expenses_id }}" class="btn btn-success">
                             <span>กลับ</span></a>
                     </div>
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="float-end">
                                     <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                            href="">IDEACLE CO.,LTD</a></p>
+                                            href="">IDEACLE</a></p>
                                 </div>
                             </div>
                         </footer>

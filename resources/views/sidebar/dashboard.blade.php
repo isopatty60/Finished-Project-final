@@ -17,7 +17,7 @@
                 <li class="sidebar-item active">
                     <a href="{{ route('home') }}" class='sidebar-link'>
                         <i class="bi bi-house-fill"></i>
-                        <span>Dashboard</span>
+                        <span>แดชบอร์ด</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
@@ -44,16 +44,12 @@
                         </div>
                     </div>
                 </li>
-
-
-
                 <li class="sidebar-item">
                     <a href="{{ route('change/password') }}" class='sidebar-link'>
                         <i class="bi bi-shield-lock"></i>
                         <span>เปลี่ยนรหัสผ่าน</span>
                     </a>
                 </li>
-
                 @if (Auth::user()->role_name == 'Admin')
                     <li class="sidebar-title">เพจ &amp; คอนโทรลเลอร์</li>
                     <li class="sidebar-item  has-sub">
@@ -66,13 +62,7 @@
                                 <a href="{{ route('userManagement') }}">การควบคุมผู้ใช้</a>
                             </li>
                             <li class="submenu-item">
-                                <a href="{{ route('activity/log') }}">บันทึกกิจกรรมของผู้ใช้</a>
-                            </li>
-                            <li class="submenu-item">
                                 <a href="{{ route('register') }}">ลงทะเบียนผู้ใช้</a>
-                            </li>
-                            <li class="submenu-item">
-                                <a href="/income2page">ทดสอบ</a>
                             </li>
                         </ul>
                     </li>
@@ -89,23 +79,12 @@
                             <li class="submenu-item">
                                 <a href="/invReceiptLists">ใบเสร็จรับเงิน</a>
                             </li>
-
                             <li class="submenu-item">
                                 <a href="/fiscal_years">รายรับ</a>
                             </li>
                             <li class="submenu-item">
                                 <a href="/invFiscalYearExpenses">รายจ่าย</a>
                             </li>
-                            <!--
-<li class="submenu-item">
-                                <a href="{{ route('register') }}">ลงทะเบียนผู้ใช้</a>
-                            </li>
-                            <li class="submenu-item">
-                                <a href="{{ route('activity/login/logout') }}">บันทึกกิจกรรม</a>
-                            </li>
-                            -->
-
-
                         </ul>
                     </li>
                 @endif
@@ -121,53 +100,15 @@
                             <li class="submenu-item">
                                 <a href="/invReceiptLists">ใบเสร็จรับเงิน</a>
                             </li>
-
                             <li class="submenu-item">
                                 <a href="/fiscal_years">รายรับ</a>
                             </li>
                             <li class="submenu-item">
                                 <a href="/invFiscalYearExpenses">รายจ่าย</a>
                             </li>
-                            <!-- <li class="submenu-item">
-                                <a href="{{ route('register') }}">ลงทะเบียนผู้ใช้</a>
-                            </li>
-                            <li class="submenu-item">
-                                <a href="{{ route('activity/login/logout') }}">บันทึกกิจกรรม</a>
-                            </li> -->
                         </ul>
                     </li>
                 @endif
-
-
-                <li class="sidebar-title">ตาราง &amp; แบบฟอร์ม</li>
-                <!-- <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-file-earmark-medical-fill"></i>
-                        <span>Form Elements</span>
-                    </a>
-                    <ul class="submenu">
-                        <li class="submenu-item active">
-                            <a href="{{ route('form/staff/new') }}">Staff Input</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-grid-1x2-fill"></i>
-                        <span>View Record</span>
-                    </a>
-                    <ul class="submenu">
-                        <li class="submenu-item">
-                            <a href="{{ route('form/view/detail') }}">View Detail</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{ route('lock_screen') }}" class='sidebar-link'>
-                        <i class="bi bi-lock-fill"></i>
-                        <span>Lock Screen</span>
-                    </a>
-                </li> -->
                 <li class="sidebar-item">
                     <a href="{{ route('logout') }}" class='sidebar-link'>
                         <i class="bi bi-box-arrow-right"></i>
