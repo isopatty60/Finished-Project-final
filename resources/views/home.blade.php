@@ -60,7 +60,7 @@
         </header>
 
         <div class="page-heading">
-            <h3>Profile Statistics</h3>
+            <h3>แดชบอร์ด</h3>
         </div>
 
         {{-- message --}}
@@ -68,7 +68,7 @@
         <div class="page-content">
             <section class="row">
                 <div class="col-12">
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-6 col-lg-3 col-md-6">
                             <div class="card">
                                 <div class="card-body px-3 py-4-5">
@@ -137,7 +137,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="row">
                         <div class="col-12">
                             <div class="card">

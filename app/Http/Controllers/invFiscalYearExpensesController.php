@@ -38,9 +38,9 @@ class invFiscalYearExpensesController extends Controller
         return view('invFiscalYearExpenses.show', compact('invFiscalYearExpenses'));
     }
 
-    public function edit(invFiscalYearExpenses $FiscalYearExpenses)
+    public function edit($id)
     {
-
+        $FiscalYearExpenses = invFiscalYearExpenses::find($id);
         return view('invFiscalYearExpenses.edit', compact('FiscalYearExpenses'));
     }
 
@@ -55,10 +55,9 @@ class invFiscalYearExpensesController extends Controller
             ->with('success', 'invFiscalYearExpenses updated successfully');
     }
 
-    public function destroy(invFiscalYearExpenses $FiscalYearExpenses)
+    public function destroy($id)
     {
-        dd($FiscalYearExpenses);
-        $FiscalYearExpenses->delete();
+        invFiscalYearExpenses::find($id)->delete();
         return redirect()->route('invFiscalYearExpenses.index')
             ->with('success', 'fiscal_years deleted successfully');
     }

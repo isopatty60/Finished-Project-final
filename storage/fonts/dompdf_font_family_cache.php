@@ -87,5 +87,8 @@ return array (
     'italic' => $fontDir . '/thsarabunnew_italic_5eb51d3729cbca365477513c573dc67a',
     'bold_italic' => $fontDir . '/thsarabunnew_bold_italic_56a8d2210f4e503e63651f77fa4ef32d',
   ),
+  'fontawesome' => array(
+    'normal' => $fontDir . '/fontawesome_normal_f6b2e9286a2b9f34642c243947f39e1a',
+  ),
 );
 }; ?>

@@ -13,23 +13,15 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Receipt Control</h3>
-                        <p class="text-subtitle text-muted">For Receipt to check they list</p>
+                        <h3>ใบเสร็จรับเงิน</h3>
+                        <p class="text-subtitle text-muted">ออกใบเสร็จให้ลูกค้า</p>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Receipt Control</li>
-
+                                <li class="breadcrumb-item active" aria-current="page">ออกใบเสร็จให้ลูกค้า</li>
                             </ol>
-                            <p>Date/Time: <span id="datetime"></span></p>
-                            <script>
-                                var dt = new Date();
-                                document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "." + (("0" + (dt.getMonth() +
-                                    1)).slice(-2)) + "." + (dt.getFullYear()) + " " + (("0" + dt.getHours()).slice(-2)) + ":" + (("0" + dt
-                                    .getMinutes()).slice(-2));
-                            </script>
                         </nav>
                     </div>
                 </div>
@@ -39,18 +31,20 @@
             <section class="section">
                 <div class="card">
                     <div class="card-header">
-                        <a class="btn btn-success" href="{{ route('invReceiptLists.create') }}"> Create New Receipt </a>
+                        <a class="btn btn btn-info" href="{{ route('invReceiptLists.create') }}"> เพิ่มรายชื่อลูกค้า </a>
+                        <a class="btn btn-success" href="{{ route('fiscal_years.index') }}"> รายรับ </a>
+                        <a class="btn btn-success" href="{{ route('invFiscalYearExpenses.index') }}"> รายจ่าย </a>
                     </div>
-
-
                     <div class="card-body">
                         <table class="table table-striped" id="table1">
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Name</th>
-                                    <th>Details</th>
-                                    <th>Date</th>
+                                    <th>ลำดับ</th>
+                                    <th>รายการ</th>
+                                    <th>ที่อยู่</th>
+                                    <th>วันที่</th>
+                                    <th>เบอร์โทรศัพท์</th>
+                                    <th>รหัสไปรษณีย์</th>
                                     <th width="280px">Action</th>
                                 </tr>
                             </thead>
@@ -60,8 +54,10 @@
                                     <td>{{ ++$i }}</td>
                                     <td><a href="{{ route('invReceiptDetails.show', $value->id) }}"
                                             class="inster">{{ $value->title }}</a></td>
-                                    <td>{{ \Str::limit($value->description, 100) }}</td>
-                                    <td>{{ $value->date }}</td>
+                                    <td>{{ $value->address }}</td>
+                                    <td>{{ $value->tel }}</td>
+                                    <td>{{ $value->postcode }}</td>
+                                    <td>{{ date('d-m-Y', strtotime( $value->date)) }}</td>
                                     <td>
                                         <form action="{{ route('invReceiptLists.destroy', $value->id) }}" method="POST">
                                             <!-- <a class="btn btn-info" href="{{ route('invReceiptLists.show', $value->id) }}"><i class="bi bi-eye"></i></a>     -->

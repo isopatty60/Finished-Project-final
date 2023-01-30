@@ -32,7 +32,7 @@
                 <div class="card">
                     <div class="card-header">
 
-                        <a class="btn btn-success" href="{{ route('create004', ['id' => $id]) }}"> เพิ่มรายการ</a>
+                        <a class="btn btn-success" href="{{ route('createInvReceiptDetails', ['id' => $id]) }}"> เพิ่มรายการ</a>
                         <a href="/pdf/{{ $id }} ?>" class="btn btn-success"> <span>Report</span></a>
                         <a class="btn btn-success" href="{{ route('invReceiptLists.index') }}"> Back</a>
 
@@ -44,23 +44,22 @@
                             <thead>
                                 <tr>
                                     <th>ลำดับ</th>
-                                    <th>ชื่อ</th>
+                                    <th>รายการ</th>
                                     <th>รายละเอียด</th>
+                                    <th>จำนวน(หน่วย)</th>
                                     <th>ราคา</th>
                                     <th>วันที่</th>
-                                    <th>หทายเหตุ</th>
                                     <th width="280px">Action</th>
                                 </tr>
                             </thead>
-
                             @foreach ($invReceiptDetails as $i => $value)
                                 <tr>
                                     <td>{{ ++$i }}</td>
                                     <td>{{ $value->name }}</td>
                                     <td>{{ \Str::limit($value->detail, 100) }}</td>
-                                    <td>{{ $value->price }}</td>
-                                    <td>{{ $value->date }}</td>
-                                    <td>{{ $value->note }}</td>
+                                    <td>{{ $value->amount }}</td>
+                                    <td> {{ number_format($value->price, 2) }} </td>
+                                    <td>{{ date('d-m-Y', strtotime( $value->date)) }}</td>
                                     <td>
                                         <form action="{{ route('invReceiptDetails.destroy', $value->id) }}" method="POST">
                                             <!-- <a class="btn btn-info" href="{{ route('invReceiptDetails.show', $value->id) }}"><i class="bi bi-eye"></i></a>     -->

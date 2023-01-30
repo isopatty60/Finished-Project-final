@@ -16,8 +16,10 @@ class CreateINVReceiptListsTable extends Migration
         Schema::create('INV_Receipt_lists', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description');
-            $table->string('date');
+            $table->text('address');
+            $table->date('date');
+            $table->int('tel');
+            $table->int('postcode');
             $table->timestamps();
         });
     }

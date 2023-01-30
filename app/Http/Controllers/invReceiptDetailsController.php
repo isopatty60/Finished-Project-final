@@ -23,7 +23,7 @@ class invReceiptDetailsController extends Controller
     }
 
 
-    public function create004($id)
+    public function createInvReceiptDetails($id)
     {
         return view('invReceiptDetails.create', compact('id'));
     }
@@ -35,12 +35,18 @@ class invReceiptDetailsController extends Controller
             'detail' => 'required',
             'date' => 'required',
             'price' => 'required',
-            'note' => 'required',
-            'address' => 'required',
+            'amount' => 'required',
             'Receipt_lists_id' => 'required',
         ]);
-
-        invReceiptDetails::create($request->all());
+        $data = [
+            'name' => $request->name,
+            'detail' => $request->detail,
+            'amount' => $request->amount,
+            'price' => $request->price,
+            'Receipt_lists_id' => $request->Receipt_lists_id,
+            'date' => date('Y-m-d', strtotime($request->date)),
+        ];
+        invReceiptDetails::create($data);
         return redirect('/invReceiptDetails/' . $request->Receipt_lists_id)
             ->with('success', ' create successfully');
     }
@@ -65,11 +71,19 @@ class invReceiptDetailsController extends Controller
             'detail' => 'required',
             'date' => 'required',
             'price' => 'required',
-            'address' => 'required',
-            'note' => 'required',
+            'amount' => 'required',
             'Receipt_lists_id' => 'required',
         ]);
-        invReceiptDetails::find($id)->update($request->all());
+
+        $data = [
+            'name' => $request->name,
+            'detail' => $request->detail,
+            'amount' => $request->amount,
+            'price' => $request->price,
+            'Receipt_lists_id' => $request->Receipt_lists_id,
+            'date' => date('Y-m-d', strtotime($request->date)),
+        ];
+        invReceiptDetails::find($id)->update($data);
         $inv = invReceiptDetails::find($id);
         // return response()->json($request);
 

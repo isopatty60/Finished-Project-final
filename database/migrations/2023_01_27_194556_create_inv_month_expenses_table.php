@@ -12,7 +12,7 @@ class CreateInvMonthExpensesTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('detail');
-            $table->string('date');
+            $table->date('date');
             $table->timestamps();
             $table->unsignedBigInteger('fiscal_year_id_expenses');
             $table->foreign('fiscal_year_id_expenses')->references('id')->on('inv_fiscal_year_expenses')->onDelete('cascade');

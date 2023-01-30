@@ -12,7 +12,7 @@ class InvDetailsExpensesTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('detail');
-            $table->string('date');
+            $table->date('date');
             $table->DECIMAL('price');
             $table->string('note');
             $table->timestamps();

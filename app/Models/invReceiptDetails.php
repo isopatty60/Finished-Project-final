@@ -10,6 +10,6 @@ class invReceiptDetails extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'detail', 'date', 'price', 'address', 'note', 'Receipt_lists_id'
+        'name', 'detail', 'date', 'price', 'amount', 'note', 'Receipt_lists_id'
     ];
 }

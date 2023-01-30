@@ -12,7 +12,7 @@ class InvItemsExpensesTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('detail');
-            $table->string('date');
+            $table->date('date');
             $table->string('note');
             $table->DECIMAL('price');
             $table->string('image_product');

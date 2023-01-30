@@ -26,10 +26,21 @@ class invReceiptListsController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'description' => 'required',
+            'address' => 'required',
             'date'  => 'required',
+            'tel'  => 'required',
+            'postcode'  => 'required',
+
         ]);
-        invReceiptLists::create($request->all());
+        $data = [
+            'title' => $request->title,
+            'address' => $request->address,
+            'price' => $request->price,
+            'tel' => $request->tel,
+            'postcode' => $request->postcode,
+            'date' => date('Y-m-d', strtotime($request->date)),
+        ];
+        invReceiptLists::create($data);
         return redirect()->route('invReceiptLists.index')
             ->with('success', 'invReceiptLists created successfully.');
     }
@@ -41,7 +52,6 @@ class invReceiptListsController extends Controller
     public function edit($id)
     {
         $invReceiptLists = invReceiptLists::find($id);
-        // return response()->json($invReceiptLists);
         return view('invReceiptLists.edit', compact('invReceiptLists'));
     }
 
@@ -49,10 +59,20 @@ class invReceiptListsController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'description' => 'required',
+            'address' => 'required',
             'date'  => 'required',
+            'tel'  => 'required',
+            'postcode'  => 'required'
         ]);
-        invReceiptLists::find($id)->update($request->all());
+        $data = [
+            'title' => $request->title,
+            'address' => $request->address,
+            'price' => $request->price,
+            'tel' => $request->tel,
+            'postcode' => $request->postcode,
+            'date' => date('Y-m-d', strtotime($request->date)),
+        ];
+        invReceiptLists::find($id)->update($data);
         return redirect()->route('invReceiptLists.index')
             ->with('success', 'invReceiptLists updated successfully');
     }

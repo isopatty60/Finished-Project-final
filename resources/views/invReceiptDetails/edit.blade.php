@@ -35,41 +35,24 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>User Management View</h3>
-                        <p class="text-subtitle text-muted">For user to check they list</p>
+                        <h3>แก้ไขข้อมมูลรายละเอียด</h3>
+                        <p class="text-subtitle text-muted">แก้ไขข้อมมูลรายงานลูกค้า</p>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">User Mangement View</li>
+                                <li class="breadcrumb-item active" aria-current="page">แก้ไขข้อมมูลรายละเอียด</li>
                             </ol>
                         </nav>
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-lg-12 margin-tb">
-                    <div class="pull-left">
-                        <h2>Edit Product</h2>
-                    </div>
-                    <div class="pull-right">
-                        <a class="btn btn-primary" href="javascript:history.back()"> Back</a>
-                    </div>
-                </div>
-            </div>
-
-
             <form action="{{ route('update_invReceiptDetails', $invReceiptDetails->id) }}" method="POST"
                 enctype='multipart/form-data'>
                 @csrf
-                @method('PUT')
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">User View Detial</h4>
-                        </div>
                         <div class="card-content">
                             <div class="card-body">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -79,6 +62,7 @@
                                             class="form-control" placeholder="Name">
                                     </div>
                                 </div>
+
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Detail:</strong>
@@ -87,21 +71,23 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>Address:</strong>
-                                        <textarea class="form-control" style="height:150px" name="address" placeholder="Address">{{ $invReceiptDetails->address }}</textarea>
+                                        <strong>จำนวน(หน่วย) :</strong>
+                                        <input type="text" class="form-control" placeholder="โปรดใส่รายการ"
+                                            id="first-name-icon" name="amount" value="{{ $invReceiptDetails->amount }}">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>price:</strong>
-                                        <textarea class="form-control" style="height:150px" name="price" placeholder="price">{{ $invReceiptDetails->price }}</textarea>
+                                        <strong>ราคา :</strong>
+                                        <input type="text" class="form-control" placeholder="โปรดใส่รายการ"
+                                            id="first-name-icon" name="price" value="{{ $invReceiptDetails->price }}">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>Date:</strong>
-                                        <input value="{{ $invReceiptDetails->date }}" class="date form-control"
-                                            name="date" type="text" placeholder="Date">
+                                        <strong>วันที่:</strong>
+                                        <input value="{{ date('d-m-Y', strtotime($invReceiptDetails->date)) }}"
+                                            class="date form-control" name="date" type="text" placeholder="Date">
                                     </div>
                                 </div>
                                 <script type="text/javascript">
@@ -110,18 +96,6 @@
                                     });
                                 </script>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <strong>หมายเหตุ:</strong>
-                                        <div class="select">
-                                            {{-- <select name="note" class="form-select"> --}}
-                                            <select name="note"
-                                                value="{{ $invReceiptDetails->note }}"class="form-select">
-                                                <option selected disabled>{{ $invReceiptDetails->note }}</option>
-                                                <option value="รายรับ">รายรับ</option>
-                                                <option value="รายจ่าย">รายจ่าย</option>
-                                            </select>
-                                        </div>
-                                    </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12" hidden>
                                         <div class="form-group">
                                             <strong>Receipt_lists_id:</strong>
@@ -130,6 +104,8 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                         <button type="submit" class="btn btn-primary">Submit</button>
+                                        <a class="btn btn-primary" href="javascript:history.back()"> กลับ</a>
+
                                     </div>
                                 </div>
             </form>

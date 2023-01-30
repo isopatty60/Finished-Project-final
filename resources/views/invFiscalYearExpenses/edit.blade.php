@@ -46,9 +46,8 @@
                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
             </head>
-            <form action="{{ route('invFiscalYearExpenses.update', $FiscalYearExpenses->id) }}">
+            <form action="{{ route('invFiscalYearExpenses.update', $FiscalYearExpenses->id) }}" method="POST">
                 @csrf
-                @method('PUT')
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">

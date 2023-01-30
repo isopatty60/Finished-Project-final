@@ -17,10 +17,9 @@ class CreateINVReceiptDetailsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('detail');
-            $table->string('date');
+            $table->date('date');
             $table->mediumInteger('price');
-            $table->string('note');
-            $table->string('address');
+            $table->int('amount');
             $table->timestamps();
             $table->unsignedBigInteger('Receipt_lists_id');
             $table->foreign('Receipt_lists_id')->references('id')->on('INV_Receipt_lists')->onDelete('cascade');

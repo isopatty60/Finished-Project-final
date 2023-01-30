@@ -99,12 +99,13 @@ Route::get('delete/{id}', [App\Http\Controllers\FormController::class, 'viewDele
 
 // ----------------------------- form invReceiptLists ------------------------------//
 Route::resource('invReceiptLists', invReceiptListsController::class)->middleware('auth');
-Route::put('invReceiptLists/update/{id}', [invReceiptListsController::class, 'update'])->name('invReceiptLists.update')->middleware('auth');
+Route::get('invFiscalYearExpenses/edit/{id}', [invReceiptListsController::class, 'edit'])->name('invReceiptLists.edit')->middleware('auth');
+Route::post('invReceiptLists/update/{id}', [invReceiptListsController::class, 'update'])->name('invReceiptLists.update')->middleware('auth');
 
 // ----------------------------- form invReceiptDetails ------------------------------//
 Route::resource('invReceiptDetails', invReceiptDetailsController::class)->middleware('auth');
-Route::get('/invReceiptDetails/create/{id}', [invReceiptDetailsController::class, 'create004'])->name('create004')->middleware('auth');
-Route::put('update_invReceiptDetails/{id}', [invReceiptDetailsController::class, 'update'])->name('update_invReceiptDetails')->middleware('auth');
+Route::get('/invReceiptDetails/create/{id}', [invReceiptDetailsController::class, 'createInvReceiptDetails'])->name('createInvReceiptDetails')->middleware('auth');
+Route::post('update_invReceiptDetails/{id}', [invReceiptDetailsController::class, 'update'])->name('update_invReceiptDetails')->middleware('auth');
 
 
 // ----------------------------- form InvFiscalYears ------------------------------//
@@ -113,7 +114,9 @@ Route::put('fiscal_years/update/{id}', [invFiscalYearsController::class, 'update
 
 // ----------------------------- form InvFiscalYearsExpenses ------------------------------//
 Route::resource('invFiscalYearExpenses', invFiscalYearExpensesController::class)->middleware('auth');
-Route::put('invFiscalYearExpenses/update/{id}', [invFiscalYearExpensesController::class, 'update'])->name('invFiscalYearExpenses.update')->middleware('auth');
+Route::get('invFiscalYearExpenses/edit/{id}', [invFiscalYearExpensesController::class, 'edit'])->name('invFiscalYearExpenses.edit')->middleware('auth');
+Route::post('invFiscalYearExpenses/update/{id}', [invFiscalYearExpensesController::class, 'update'])->name('invFiscalYearExpenses.update')->middleware('auth');
+Route::delete('/invFiscalYearExpenses/destroy/{id}', [invFiscalYearExpensesController::class, 'destroy'])->name('invFiscalYearExpenses.destroy')->middleware('auth');
 
 // ----------------------------- form InvMonths ------------------------------//
 Route::resource('InvMonths', InvMonthsController::class)->middleware('auth');

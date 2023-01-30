@@ -10,6 +10,6 @@ class invReceiptLists extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'description', 'date'
+        'title', 'address', 'date', 'tel', 'postcode'
     ];
 }

@@ -27,22 +27,15 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>User Management View</h3>
-                        <p class="text-subtitle text-muted">For user to check they list</p>
+                        <h3>เพิ่มรายการ</h3>
+                        <p class="text-subtitle text-muted">ออกใบเสร็จให้ลูกค้า</p>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">User Mangement View</li>
+                                <li class="breadcrumb-item active" aria-current="page">เพิ่มรายการใบเสร็จ</li>
                             </ol>
-                            <p>Date/Time: <span id="datetime"></span></p>
-                            <script>
-                                var dt = new Date();
-                                document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "." + (("0" + (dt.getMonth() +
-                                    1)).slice(-2)) + "." + (dt.getFullYear()) + " " + (("0" + dt.getHours()).slice(-2)) + ":" + (("0" + dt
-                                    .getMinutes()).slice(-2));
-                            </script>
                         </nav>
                     </div>
                 </div>
@@ -63,12 +56,6 @@
 
             <div class="row">
                 <div class="col-lg-12 margin-tb">
-                    <div class="pull-left">
-                        <h2>Add New Product</h2>
-                    </div>
-                    <div class="pull-right">
-                        <a class="btn btn-primary" href="{{ route('invReceiptLists.index') }}"> Back</a>
-                    </div>
                 </div>
             </div>
 
@@ -89,20 +76,32 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Title:</strong>
-                            <input type="text" name="title" class="form-control" placeholder="Enter Title">
+                            <strong>รายการ:</strong>
+                            <input type="text" name="title" class="form-control" placeholder="โปรดใส่รายการ">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Description:</strong>
-                            <textarea class="form-control" style="height:150px" name="description" placeholder="Enter Description"></textarea>
+                            <strong>ที่อยู่:</strong>
+                            <textarea class="form-control" style="height:150px" name="address" placeholder="โปรดใส่เบอร์ที่อยู่"></textarea>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Date:</strong>
-                            <input class="date form-control" name="date" type="text" placeholder="Date">
+                            <strong>เบอร์โทรศัพท์ :</strong>
+                            <input type="text" name="tel" class="form-control" placeholder="โปรดใส่เบอร์โทรศัพท์">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>รหัสไปรษณีย์:</strong>
+                            <input type="text" name="postcode" class="form-control" placeholder="โปรดใส่รหัสไปรษณีย์">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>วันที่:</strong>
+                            <input class="date form-control" name="date" type="text" placeholder="โปรดใส่วันที่">
                         </div>
                     </div>
                     <script type="text/javascript">
@@ -112,6 +111,7 @@
                     </script>
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>
+                        <a class="btn btn-primary" href="javascript:history.back()"> กลับ</a>
                     </div>
                 </div>
 

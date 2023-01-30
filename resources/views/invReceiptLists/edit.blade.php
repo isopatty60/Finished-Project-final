@@ -3,6 +3,14 @@
     @extends('sidebar.income2page')
 @endsection
 @section('content')
+
+    <head>
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"/> -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css"
+            rel="stylesheet">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+    </head>
     <div id="main">
         <style>
             .avatar.avatar-im .avatar-content,
@@ -26,14 +34,14 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>User Management View</h3>
-                        <p class="text-subtitle text-muted">For user to check they list</p>
+                        <h3>แก้ไขรายชื่อลูกค้า</h3>
+                        <p class="text-subtitle text-muted">ออกใบเสร็จให้ลูกค้า</p>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">User Mangement View</li>
+                                <li class="breadcrumb-item active" aria-current="page">แก้ไขรายชื่อลูกค้า</li>
                             </ol>
 
                         </nav>
@@ -42,52 +50,55 @@
             </div>
 
 
-            <form action="{{ route('invReceiptLists.update', $invReceiptLists->id) }}">
+            <form action="{{ route('invReceiptLists.update', $invReceiptLists->id) }}" method="POST">
                 @csrf
-                @method('PUT')
-
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">User View Detial</h4>
-                        </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <div class="col-md-4">
-                                    <label>Email Address</label>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>รายการ :</strong>
+                                        <input type="text" class="form-control" placeholder="โปรดใส่รายการ"
+                                            id="first-name-icon" name="title" value="{{ $invReceiptLists->title }}">
+                                    </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="form-group has-icon-left">
-                                        <div class="position-relative">
-                                            <input type="title" class="form-control" placeholder="Title"
-                                                id="first-name-icon" name="title" value="{{ $invReceiptLists->title }}">
-                                            <div class="form-control-icon">
-                                                <i class="bi bi-envelope"></i>
-                                            </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>ที่อยู่:</strong>
+                                        <textarea class="form-control" style="height:150px" name="address" placeholder="โปรดใส่ที่อยู่">{{ $invReceiptLists->address }}</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>เบอร์โทรศัพท์ :</strong>
+                                        <input type="number" class="form-control" placeholder="โปรดใส่เบอร์โทรศัพท์"
+                                            id="first-name-icon" name="tel" value="{{ $invReceiptLists->tel }}">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>รหัสไปรษณีย์:</strong>
+                                        <input type="number" class="form-control" placeholder="โปรดใส่รหัสไปรษณีย์"
+                                            id="first-name-icon" name="postcode" value="{{ $invReceiptLists->postcode }}">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                            <strong>วันที่:</strong>
+                                            <input value="{{ date('d-m-Y', strtotime($invReceiptLists->date)) }}"
+                                                class="date form-control" name="date" type="text" placeholder="Date">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <strong>Description:</strong>
-                                        <textarea class="form-control" style="height:150px" name="description" placeholder="Detail">{{ $invReceiptLists->description }}</textarea>
+                                    <script type="text/javascript">
+                                        $('.date').datepicker({
+                                            format: 'dd-mm-yyyy'
+                                        });
+                                    </script>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <a class="btn btn-primary" href="javascript:history.back()"> กลับ</a>
+
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <strong>Date:</strong>
-                                        <input value="{{ $invReceiptLists->date }}" class="date form-control" name="date"
-                                            type="text" placeholder="Date">
-                                    </div>
-                                </div>
-                                <script type="text/javascript">
-                                    $('.date').datepicker({
-                                        format: 'dd-mm-yyyy'
-                                    });
-                                </script>
-                                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </div>
             </form>
         @endsection

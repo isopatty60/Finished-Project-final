@@ -74,18 +74,11 @@
                     <li class="sidebar-item  has-sub active">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-hexagon-fill"></i>
-                            <span>รายรับ-จ่าย</span>
+                            <span>รายรับ-จ่าย-ใบเสร็จ</span>
                         </a>
                         <ul class="submenu active">
                             <li class="submenu-item active">
-                                <a href="/invReceiptLists">ใบเสร็จรับเงิน</a>
-                            </li>
-                            <li class="submenu-item">
-                                <a href="/fiscal_years">รายรับ</a>
-                            </li>
-
-                            <li class="submenu-item ">
-                                <a href="/invFiscalYearExpenses">รายจ่าย</a>
+                                <a href="/invReceiptLists">หน้าจัดการ</a>
                             </li>
                         </ul>
                     </li>

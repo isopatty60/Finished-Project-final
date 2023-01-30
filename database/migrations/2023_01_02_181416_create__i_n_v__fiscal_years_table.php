@@ -17,7 +17,7 @@ class CreateINVFiscalYearsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->string('date');
+            $table->date('date');
             $table->timestamps();
         });
     }

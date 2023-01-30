@@ -17,7 +17,7 @@ class CreateINVMonthsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('detail');
-            $table->string('date');
+            $table->date('date');
             $table->timestamps();
             $table->unsignedBigInteger('Fiscal_year_id');
             $table->foreign('Fiscal_year_id')->references('id')->on('INV_Fiscal_years')->onDelete('cascade');

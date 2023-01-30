@@ -65,9 +65,8 @@
                 Pa Phai sub district,<br>
                 San Sai district,
                 Chiang Mai 50290
-                <!-- P: (416) 123-4567 <br>
-                E: copmany@company.com <br> -->
-
+                {{-- <!-- P: (416) 123-4567 <br>
+                E: copmany@company.com <br> --> --}}
                 <br>
             </div>
 
