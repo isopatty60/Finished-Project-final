@@ -300,7 +300,6 @@
         function dateFormat(inputDate, format) {
             //parse the input date
             const date = new Date(inputDate);
-
             //extract the parts of the date
             const day = date.getDate();
             const month = date.getMonth() + 1;
