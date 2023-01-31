@@ -20,7 +20,7 @@
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('home') }}">หน้าแรก</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">รายการ รายรับ-รายจ่าย</li>
+                                <li class="breadcrumb-item active" aria-current="page">รายการ รายจ่าย</li>
 
                             </ol>
                         </nav>
@@ -32,7 +32,8 @@
             <section class="section">
                 <div class="card">
                     <div class="card-header">
-                        <a class="btn btn btn-info" href="{{ route('invFiscalYearExpenses.create') }}"> เพิ่มรายการปีงบประมาณรายจ่าย</a>
+                        <a class="btn btn btn-info" href="{{ route('invFiscalYearExpenses.create') }}">
+                            เพิ่มรายการปีงบประมาณรายจ่าย</a>
                         <a class="btn btn-success" href="{{ route('fiscal_years.index') }}"> รายรับ </a>
                         <a class="btn btn-success" href="{{ route('invReceiptLists.index') }}"> ออกใบเสร็จ </a>
                         </a>

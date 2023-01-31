@@ -32,7 +32,6 @@ class invMonthExpensesController extends Controller
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
-            'date' => 'required',
             'fiscal_year_id_expenses' => 'required',
         ]);
         invMonthExpenses::create($request->all());
@@ -58,7 +57,6 @@ class invMonthExpensesController extends Controller
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
-            'date' => 'required',
             'fiscal_year_id_expenses' => 'required',
         ]);
 
@@ -68,7 +66,6 @@ class invMonthExpensesController extends Controller
         return redirect('/invMonthExpenses/' . $inv->fiscal_year_id_expenses);
     }
     public function destroy($id)
-
     {
         invMonthExpenses::find($id)->delete();
         return back()->with('success', 'invMonthExpenses deleted successfully');

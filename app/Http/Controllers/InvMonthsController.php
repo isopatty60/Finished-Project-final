@@ -32,7 +32,6 @@ class InvMonthsController extends Controller
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
-            'date' => 'required',
             'Fiscal_year_id' => 'required',
         ]);
         InvMonths::create($request->all());
@@ -58,7 +57,6 @@ class InvMonthsController extends Controller
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
-            'date' => 'required',
             'Fiscal_year_id' => 'required',
         ]);
 
@@ -68,7 +66,6 @@ class InvMonthsController extends Controller
         return redirect('/InvMonths/' . $inv->Fiscal_year_id);
     }
     public function destroy($id)
-
     {
         InvMonths::find($id)->delete();
         return back()->with('success', 'Product_subdata deleted successfully');

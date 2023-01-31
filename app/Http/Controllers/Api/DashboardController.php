@@ -7,6 +7,7 @@ use App\Models\invDetails;
 use Illuminate\Http\Request;
 use App\Models\invDetailExpenses;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
@@ -15,16 +16,16 @@ class DashboardController extends Controller
     {
         $chart_year = !empty($request->chart_year) ? $request->chart_year - 543 : date('Y');
         $inv_detail_expenses = DB::table('inv_detail_expenses')
-            ->select(DB::raw('(sum(price)) as price'), 'month_expenses_id')
+            ->select(DB::raw('(sum(price)) as price'), DB::raw('MONTH(date) as month'))
             ->whereYear('date', $chart_year)
-            ->groupBy('month_expenses_id')
-            ->orderBy('month_expenses_id', 'desc')
+            ->groupBy('month')
+            ->orderBy('month', 'desc')
             ->get();
         $inv_detail = DB::table('inv_details')
-            ->select(DB::raw('(sum(price)) as price'), 'Month_id')
+            ->select(DB::raw('(sum(price)) as price'), DB::raw('MONTH(date) as month'))
             ->whereYear('date', $chart_year)
-            ->groupBy('Month_id')
-            ->orderBy('Month_id', 'desc')
+            ->groupBy('month')
+            ->orderBy('month', 'desc')
             ->get();
 
         $inv_price = [];
@@ -37,21 +38,39 @@ class DashboardController extends Controller
         // inv_detail
         foreach ($inv_detail as $inv_key => $inv) {
             $inv_price[$inv_key] = $inv->price;
-            $inv_month[$inv_key] = $strMonthCut[$inv->Month_id];
+            $inv_month[$inv_key] = $strMonthCut[$inv->month];
         }
 
         // inv_detail_expenses
         foreach ($inv_detail_expenses as $inv_key => $inv_expenses) {
             $inv_expenses_price[$inv_key] =  $inv_expenses->price;
-            $inv_expenses_month[$inv_key] = $strMonthCut[$inv_expenses->month_expenses_id];
+            $inv_expenses_month[$inv_key] = $strMonthCut[$inv_expenses->month];
         }
 
         // result
         $result['inv_expenses_price'] = $inv_expenses_price;
         $result['inv_price'] = $inv_price;
-        $result['month'] = collect([...$inv_month, ...$inv_expenses_month])->unique();
+        $result['month'] = collect([...$inv_month, ...$inv_expenses_month])->unique()->toArray();
+        krsort($result['inv_expenses_price']);
+        krsort($result['inv_price']);
+        krsort($result['month']);
 
-        return response()->json($result);
+        $response = [
+            'inv_expenses_prices' => [],
+            'inv_prices' => [],
+            'months' => [],
+        ];
+        foreach ($result['inv_expenses_price'] as  $inv_ex) {
+            $response['inv_expenses_prices'][] = $inv_ex;
+        }
+        foreach ($result['inv_price'] as $inv_price) {
+            $response['inv_prices'][] = $inv_price;
+        }
+        foreach ($result['month'] as $month) {
+            $response['months'][] = $month;
+        }
+
+        return response()->json($response);
     }
 
     public function records(Request $request)

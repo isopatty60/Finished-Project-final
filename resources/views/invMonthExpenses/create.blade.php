@@ -100,40 +100,6 @@
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12" hidden>
                         <div class="form-group">
-                            <strong>วันที่:</strong>
-                            <input class="date form-control" name="date" type="text" id="date"
-                                placeholder="วันที่">
-                        </div>
-                    </div>
-                    <script type="text/javascript">
-                        var dt = new Date();
-                        const result = dt.toLocaleDateString('th-TH', {
-                            month: 'numeric'
-                        })
-
-                        // $('.date').datepicker({
-                        // format: '01-mm-yyyy'
-                        // });
-                        document.getElementById("pickdate").value = result;
-
-
-                        let raw_pickdate = document.getElementById("pickdate").value;
-                        let pickdate;
-                        if ((raw_pickdate).length < 2) {
-                            pickdate = '0' + raw_pickdate;
-                        } else {
-                            pickdate = raw_pickdate;
-                        }
-
-                        function sentEvent() {
-                            let ho = '01-' + pickdate + '-' + dt.getFullYear();
-                            document.getElementById("date").value = ho;
-
-                            console.log(ho);
-                        }
-                    </script>
-                    <div class="col-xs-12 col-sm-12 col-md-12" hidden>
-                        <div class="form-group">
                             <strong>fiscal_year_id_expenses:</strong>
                             <input type="number" name="fiscal_year_id_expenses" class="form-control"
                                 value={{ $id }}>

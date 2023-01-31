@@ -71,7 +71,7 @@
                                         <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $income1->detail }}</textarea>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12" hidden>
+                                {{-- <div class="col-xs-12 col-sm-12 col-md-12" hidden>
                                     <div class="form-group">
                                         <strong>วันที่:</strong>
                                         <input value="{{ $income1->date }}" class="date form-control" name="date"
@@ -82,7 +82,7 @@
                                     $('.date').datepicker({
                                         format: 'dd-mm-yyyy'
                                     });
-                                </script>
+                                </script> --}}
                                 <div class="col-xs-12 col-sm-12 col-md-12" hidden>
                                     <div class="form-group">
                                         <strong>id_income_lists:</strong>

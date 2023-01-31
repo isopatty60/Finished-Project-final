@@ -128,7 +128,7 @@ Route::delete('/InvMonths/destroy/{id}', [InvMonthsController::class, 'destroy']
 Route::resource('invMonthExpenses', invMonthExpensesController::class)->middleware('auth');
 Route::get('/invMonthExpenses/create/{id}', [invMonthExpensesController::class, 'createInvMonthsExpenses'])->name('createInvMonthsExpenses')->middleware('auth');
 Route::put('update_invMonthExpenses/{id}', [invMonthExpensesController::class, 'updateInvMonthExpenses'])->name('updateInvMonthExpenses')->middleware('auth');
-Route::delete('/invMonthExpenses/destroy/{id}', [invMonthExpensesController::class, 'destroy'])->name('InvMonths.destroy')->middleware('auth');
+Route::delete('/invMonthExpenses/destroy/{id}', [invMonthExpensesController::class, 'destroy'])->name('invMonthExpenses.destroy')->middleware('auth');
 
 // ----------------------------- form invDetails ------------------------------//
 Route::resource('invDetails', invDetailController::class)->middleware('auth');

@@ -20,7 +20,7 @@
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('home') }}">หน้าแรก</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">รายการ</li>
+                                <li class="breadcrumb-item active" aria-current="page">รายการ รายจ่าย</li>
 
                             </ol>
                         </nav>
@@ -63,7 +63,7 @@
                                     <td>{{ \Str::limit($value->detail, 100) }}</td>
                                     <td>
                                         <!-- <a class="btn btn-info" href="{{ route('InvMonths.show', $value->id) }}"><i class="bi bi-eye"></i></a>     -->
-                                        <form action="{{ route('InvMonths.destroy', $value->id) }}" method="POST">
+                                        <form action="{{ route('invMonthExpenses.destroy', $value->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             {{-- <button type="submit"

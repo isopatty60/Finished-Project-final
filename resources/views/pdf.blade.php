@@ -56,20 +56,16 @@
 
 
     <div>
-
         <div class="row">
             <div class="col-xs-7">
                 วันที่ {{ $invDetailsName->date }}<br>
                 เลขที่ใบเสร็จ {{ $invDetailsName->id }}<br>
             </div>
-
             <div class="col-xs-4">
                 <img src="assets/images/logo/logo.png" style="height: 7.5%">
             </div>
         </div>
-
         <div style="margin-bottom: 0px">&nbsp;</div>
-
         <div class="row">
             <div class="col-xs-6">
                 <strong>จาก :</strong> <br>
@@ -111,7 +107,9 @@
                     @endphp
                     @foreach ($inv_receipt_details as $i => $value)
                         @php
-                            $sum_total = $sum_total + $value->price;
+                            $sum_total_vat = $sum_total + ($value->price * 7) / 100;
+                            $sum_total = $sum_total + $sum_total_vat + $value->price;
+
                         @endphp
                         <tr>
                             <td>{{ ++$i }}</td>
@@ -121,33 +119,21 @@
                             <td> {{ number_format($value->price, 2) }} </td>
                         </tr>
                     @endforeach
-                    <tr>
-                        <td colspan="4">รวม</td>
-                        <td>{{ number_format($sum_total, 2) }} บาท</td>
-                    </tr>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="4">ภาษีมูลค่าเพิ่ม</th>
+                        <th>{{ number_format($sum_total_vat, 2) }} บาท</th>
+                    </tr>
+                    <tr>
+                        <th colspan="4">รวม</th>
+                        <th>{{ number_format($sum_total, 2) }} บาท</th>
+                    </tr>
+                </tfoot>
             </table>
-
-            {{-- <div class="row">
-            <div class="col-xs-6"></div>
-            <div class="col-xs-5">
-                <table style="width: 100%">
-                    <tbody>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div> --}}
-
-            {{-- <div style="margin-bottom: 0px">&nbsp;</div>
-    <div class="row">
-        <div class="col-xs-8 invbody-terms">
-            Thank you for your business. <br>
-            <br>
         </div>
     </div>
-    </div> --}}
-
+    </div>
 </body>
 
 </html>

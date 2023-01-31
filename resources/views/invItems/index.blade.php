@@ -21,7 +21,7 @@
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('home') }}">หน้าแรก</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">รายการ {{ $invDetailsName->name }}
+                                <li class="breadcrumb-item active" aria-current="page">รายการ รายรับ
                                 </li>
 
                             </ol>
@@ -50,7 +50,7 @@
                                     <th>ชื่อ</th>
                                     <th>รายละเอียด</th>
                                     <th>วันที่</th>
-                                    <th>จำนวนเงิน</th>
+                                    <th>จำนวนเงิน(บาท)</th>
                                     <th>รายการ</th>
                                     <th width="280px">แก้ไข</th>
                                 </tr>

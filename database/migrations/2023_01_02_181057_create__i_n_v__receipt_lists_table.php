@@ -18,7 +18,7 @@ class CreateINVReceiptListsTable extends Migration
             $table->string('title');
             $table->text('address');
             $table->date('date');
-            $table->int('tel');
+            $table->string('tel');
             $table->int('postcode');
             $table->timestamps();
         });

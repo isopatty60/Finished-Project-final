@@ -98,7 +98,7 @@
                             <textarea class="form-control" style="height:150px" name="detail" placeholder="รายละอียด"></textarea>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12" hidden>
+                    {{-- <div class="col-xs-12 col-sm-12 col-md-12" hidden>
                         <div class="form-group">
                             <strong>วันที่:</strong>
                             <input class="date form-control" name="date" type="text" id="date"
@@ -110,10 +110,6 @@
                         const result = dt.toLocaleDateString('th-TH', {
                             month: 'numeric'
                         })
-
-                        // $('.date').datepicker({
-                        // format: '01-mm-yyyy'
-                        // });
                         document.getElementById("pickdate").value = result;
 
 
@@ -131,7 +127,7 @@
 
                             console.log(ho);
                         }
-                    </script>
+                    </script> --}}
                     <div class="col-xs-12 col-sm-12 col-md-12" hidden>
                         <div class="form-group">
                             <strong>Fiscal_year_id:</strong>

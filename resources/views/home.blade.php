@@ -389,15 +389,15 @@
                 success: function(response) {
                     var optionsLineChart = {
                         series: [{
-                                name: 'รายรับ',
-                                data: response.inv_expenses_price
+                                name: 'รายจ่าย',
+                                data: response.inv_expenses_prices
                             },
                             {
-                                name: 'รายจ่าย',
-                                data: response.inv_price
+                                name: 'รายรับ',
+                                data: response.inv_prices
                             }
                         ],
-                        labels: response.month,
+                        labels: response.months,
                         chart: {
                             type: 'area',
                             width: "100%",

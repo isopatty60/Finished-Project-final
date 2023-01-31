@@ -27,7 +27,7 @@
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('home') }}">หน้าแรก</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">รายการ</li>
+                                <li class="breadcrumb-item active" aria-current="page">รายการ รายรับ</li>
 
                             </ol>
                         </nav>
@@ -55,8 +55,9 @@
                                     <th>ชื่อ</th>
                                     <th>รายละเอียด</th>
                                     <th>วันที่</th>
-                                    <th>จำนวนเงิน</th>
-                                    <th>รายการ</th>
+                                    <th>จำนวนเงิน(บาท)</th>
+                                    <th>หมายเหตุ</th>
+
                                     <th width="280px">แก้ไข</th>
                                 </tr>
                             </thead>
@@ -113,8 +114,8 @@
                                 </script>
                             @endforeach
                             <tr>
-                                <td colspan="4">รวม</td>
-                                <td>{{ number_format($sum_total, 2) }}</td>
+                                <td colspan="6">รวม</td>
+                                <td>{{ number_format($sum_total, 2) }} บาท</td>
                             </tr>
                             @if ($invDetailsName != null && count($invDetails) > 1)
                                 <script type=text/javascript>
@@ -145,10 +146,5 @@
                             </div>
                         </footer>
                     </div>
-
-
-
-
-
                     {!! $invDetails->links() !!}
                 @endsection

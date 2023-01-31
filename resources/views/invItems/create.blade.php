@@ -84,26 +84,27 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>ชื่อ:</strong>
-                            <input type="text" name="name" class="form-control" placeholder="Enter name">
+                            <strong>รายการ:</strong>
+                            <input type="text" name="name" class="form-control" placeholder="โปรดใส่รายการ">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>รายการ:</strong>
-                            <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
+                            <strong>รายละเอียด:</strong>
+                            <textarea class="form-control" style="height:150px" name="detail" placeholder="โปรดใส่รายละเอียด"></textarea>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>ราคา:</strong>
-                            <input type="number" name="price" class="form-control" placeholder="Price" step="0.01">
+                            <input type="number" name="price" class="form-control" placeholder="โปรดใส่รายการราคา"
+                                step="0.01">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>วันที่:</strong>
-                            <input class="date form-control" name="date" type="text" placeholder="Date">
+                            <input class="date form-control" name="date" type="text" placeholder="โปรดใส่วันที่">
                         </div>
                     </div>
                     <script type="text/javascript">
