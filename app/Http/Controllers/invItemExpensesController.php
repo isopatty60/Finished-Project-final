@@ -34,19 +34,19 @@ class invItemExpensesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            // 'name' => 'required',
             'detail' => 'required',
             'date' => 'required',
-            'price' => 'required',
+            // 'price' => 'required',
             'note' => 'required',
             'detail_expenses_id' => 'required',
             'image_product' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $input = [
-            'name' => $request->name,
+            // 'name' => $request->name,
             'detail' => $request->detail,
-            'price' => $request->price,
+            // 'price' => $request->price,
             'note' => $request->note,
             'date' => date('Y-m-d', strtotime($request->date)),
             'detail_expenses_id' => $request->detail_expenses_id,
@@ -76,10 +76,10 @@ class invItemExpensesController extends Controller
     public function updateInvItemExpenses(Request $request,  $id)
     {
         $inv = invItemExpenses::find($id);
-        $inv->name = $request->input("name");
+        // $inv->name = $request->input("name");
         $inv->detail = $request->input("detail");
         $inv->date = $request->input("date");
-        $inv->price = $request->input("price");
+        // $inv->price = $request->input("price");
         $input = $request->all();
         if ($request->file('image_product')) {
             $image = $request->file('image_product');

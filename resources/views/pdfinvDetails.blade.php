@@ -58,8 +58,8 @@
         <div class="row">
             <div class="col-xs-7">
                 <strong>
-                    รายการ {{ $invDetailsName->name }}
-                </strong><br>
+                    <strong>รายการเดือน {{ $invDetailsName->name }}</strong><br>
+                </strong>
                 <strong>Company IDEACLE</strong><br>
                 94 Moo 16.
                 Pa Phai sub district,<br>
@@ -104,7 +104,8 @@
             @endphp
             @foreach ($invDetails as $i => $value)
                 @php
-                    $sum_total = $sum_total + $value->price;
+                    $sum_total_vat = ($value->price * 7) / 100;
+                    $sum_total = $sum_total + $sum_total_vat + $value->price;
                 @endphp
                 <tr>
                     <td>{{ $value->name }}</td>
@@ -116,8 +117,12 @@
                 </tr>
             @endforeach
             <tr>
-                <td colspan="2">รวม</td>
-                <td>{{ number_format($sum_total, 2) }}</td>
+                <td colspan="4">ภาษีมูลค่าเพิ่ม</td>
+                <td>{{ number_format($sum_total_vat, 2) }} บาท</td>
+            </tr>
+            <tr>
+                <td colspan="4">รวม</td>
+                <td>{{ number_format($sum_total, 2) }} บาท</td>
             </tr>
         </tbody>
     </table>

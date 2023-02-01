@@ -13,7 +13,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h2>รายการ {{ $invDetailsName->name }}</h2>
+                        <h2>รายละเอียดเงินรายรับ {{ $invDetailsName->price }} บาท</h2>
 
                         <p class="text-subtitle text-muted">ใบเสร็จรับเงินตรวจสอบรายการ</p>
                     </div>
@@ -37,7 +37,7 @@
                         <a class="btn btn-success" href="{{ route('createInvItems', ['id' => $id]) }}">
                             เพิ่มรายละเอียดเพิ่มเติม</a>
                         <a href="/pdfInvItems/{{ $id }} ?>" target="_blank" class="btn btn-success">
-                            <span>รายงานรายละเอียดเพิ่มเติม</span></a>
+                            <span>รายงาน</span></a>
                         <a href="/invDetails/{{ $invDetailsName->Month_id }}" class="btn btn-success">
                             <span>กลับ</span></a>
                     </div>
@@ -47,10 +47,10 @@
                                 <tr>
                                     <th>ลำดับ</th>
                                     <th>รูปภาพ</th>
-                                    <th>ชื่อ</th>
+                                    {{-- <th>ชื่อ</th> --}}
                                     <th>รายละเอียด</th>
                                     <th>วันที่</th>
-                                    <th>จำนวนเงิน(บาท)</th>
+                                    {{-- <th>จำนวนเงิน(บาท)</th> --}}
                                     <th>รายการ</th>
                                     <th width="280px">แก้ไข</th>
                                 </tr>
@@ -63,10 +63,10 @@
                                             <img src="/image_product/{{ $value->image_product }}" width="100px">
                                         </a>
                                     </td>
-                                    <td>{{ $value->name }}</td>
+                                    {{-- <td>{{ $value->name }}</td> --}}
                                     <td>{{ \Str::limit($value->detail, 100) }}</td>
                                     <td>{{ $value->date }}</td>
-                                    <td>{{ number_format($value->price, 2) }} </td>
+                                    {{-- <td>{{ number_format($value->price, 2) }} </td> --}}
                                     <td>{{ $value->note }}</td>
                                     <td>
                                         <form action="{{ route('invItems.destroy', $value->id) }}" method="POST">

@@ -107,9 +107,8 @@
                     @endphp
                     @foreach ($inv_receipt_details as $i => $value)
                         @php
-                            $sum_total_vat = $sum_total + ($value->price * 7) / 100;
+                            $sum_total_vat = ($value->price * 7) / 100;
                             $sum_total = $sum_total + $sum_total_vat + $value->price;
-
                         @endphp
                         <tr>
                             <td>{{ ++$i }}</td>

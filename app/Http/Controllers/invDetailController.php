@@ -70,6 +70,7 @@ class invDetailController extends Controller
             'name' => 'required',
             'detail' => 'required',
             'date' => 'required',
+            'price' => 'required',
         ]);
 
         $data = [

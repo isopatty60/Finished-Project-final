@@ -73,26 +73,27 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>ชื่อ:</strong>
-                            <input type="text" name="name" class="form-control" placeholder="ชื่อ">
+                            <input type="text" class="form-control" name="name" value="เงินเข้า" readonly>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>รายละเอียด:</strong>
-                            <textarea class="form-control" style="height:150px" name="detail" placeholder="รายละเอียด"></textarea>
+                            <textarea class="form-control" style="height:150px" name="detail" placeholder="โปรดใส่รายละเอียด"></textarea>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>วันที่:</strong>
-                            <input class="date form-control" name="date" type="text" placeholder="วันที่">
+                            <input class="date form-control" name="date" type="text" placeholder="โปรดใส่วันที่">
                         </div>
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>ราคา:</strong>
-                            <input type="number" name="price" class="form-control" placeholder="ราคา" step="0.01">
+                            <input type="number" name="price" class="form-control" placeholder="โปรดใส่ราคา"
+                                step="0.01">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">

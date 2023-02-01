@@ -73,7 +73,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>ชื่อ:</strong>
-                            <input type="text" name="name" class="form-control" placeholder="ชื่อ">
+                            <input type="text" class="form-control" name="name" value="เงินออก" readonly>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">

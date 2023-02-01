@@ -11,7 +11,7 @@ class InvMonthsController extends Controller
 {
     public function index()
     {
-        $InvMonths = InvMonths::latest()->paginate();
+        $InvMonths = InvMonths::latest();
 
         return view('InvMonths.index', compact('InvMonths'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -42,7 +42,7 @@ class InvMonthsController extends Controller
     public function show($id)
     {
         $monthsName = InvFiscalYears::find($id);
-        $months = DB::table('inv_months')->where('Fiscal_year_id', $id)->paginate(5);
+        $months = DB::table('inv_months')->where('Fiscal_year_id', $id)->paginate(20);
         return view('InvMonths.index', compact(['months', 'id', 'monthsName']));
     }
 

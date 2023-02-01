@@ -53,7 +53,8 @@
 </head>
 
 <body class="login-page" style="background: white">
-    <strong>รายการ {{ $invDetailsName->name }}</strong>
+    <strong>รายละเอียดเงินรายรับ {{ $invDetailsName->price }} บาท</strong>
+
     <div>
         <div class="row">
             <div class="col-xs-7">
@@ -93,10 +94,10 @@
         <thead style="background: #F5F5F5;">
             <tr>
 
-                <th>ชื่อ</th>
+                <th>ลำดับ</th>
                 <th>รายลเอียด</th>
-                <th>ราคา</th>
                 <th>วันที่</th>
+                <th>หมายเหตุ</th>
             </tr>
         </thead>
         <tbody>
@@ -105,19 +106,19 @@
             @endphp
             @foreach ($invItems as $i => $value)
                 @php
-                    $sum_total = $sum_total + $value->price;
+                    $sum_total = $invDetailsName->price;
                 @endphp
                 <tr>
-                    <td>{{ $value->name }}</td>
+                    <td>{{ ++$i }}</td>
                     <td>{{ $value->detail }}</td>
-                    <td>{{ number_format($value->price, 2) }} </td>
+                    {{-- <td>{{ number_format($value->price, 2) }} </td> --}}
                     <td>{{ $value->date }}</td>
-
+                    <td>{{ $value->note }}</td>
                     </div>
                 </tr>
             @endforeach
             <tr>
-                <td colspan="2">รวม</td>
+                <td colspan="3">รวม</td>
                 <td>{{ number_format($sum_total, 2) }}</td>
             </tr>
         </tbody>

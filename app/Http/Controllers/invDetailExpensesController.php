@@ -11,7 +11,7 @@ class invDetailExpensesController extends Controller
 {
     public function index()
     {
-        $invDetailExpenses = invDetailExpenses::latest()->paginate();
+        $invDetailExpenses = invDetailExpenses::latest()->paginate(20);
         $invDetailsName = "";
         return view('invDetailExpenses.index', compact(['invDetailExpenses', 'invDetailsName']))
             ->with('i', (request()->input('page', 1) - 1) * 10);
@@ -29,6 +29,7 @@ class invDetailExpensesController extends Controller
             'name' => 'required',
             'detail' => 'required',
             'date' => 'required',
+            'price' => 'required',
             'month_expenses_id' => 'required',
         ]);
         $data = [
@@ -49,7 +50,7 @@ class invDetailExpensesController extends Controller
     {
         $sum = invDetailExpenses::sum('price');
         $invDetailsName = invMonthExpenses::find($id);
-        $invDetailExpenses = DB::table('inv_detail_expenses')->where('month_expenses_id', $id)->paginate(5);
+        $invDetailExpenses = DB::table('inv_detail_expenses')->where('month_expenses_id', $id)->paginate(20);
         return view('invDetailExpenses.index', compact(['invDetailExpenses', 'id', 'invDetailsName', 'sum']));
     }
 

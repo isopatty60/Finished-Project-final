@@ -11,7 +11,7 @@ class invMonthExpensesController extends Controller
 {
     public function index()
     {
-        $invMonthExpenses = invMonthExpenses::latest()->paginate();
+        $invMonthExpenses = invMonthExpenses::latest();
 
         return view('invMonthExpenses.index', compact('invMonthExpenses'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -36,13 +36,12 @@ class invMonthExpensesController extends Controller
         ]);
         invMonthExpenses::create($request->all());
 
-        return redirect('/invMonthExpenses/' . $request->fiscal_year_id_expenses)
-            ->with('success', ' create successfully');
+        return redirect('/invMonthExpenses/' . $request->fiscal_year_id_expenses)->with('success', ' create successfully');
     }
     public function show($id)
     {
         $monthsName = invFiscalYearExpenses::find($id);
-        $invMonthExpenses = DB::table('inv_month_expenses')->where('fiscal_year_id_expenses', $id)->paginate(5);
+        $invMonthExpenses = DB::table('inv_month_expenses')->where('fiscal_year_id_expenses', $id)->paginate(20);
         return view('invMonthExpenses.index', compact(['invMonthExpenses', 'id', 'monthsName']));
     }
 

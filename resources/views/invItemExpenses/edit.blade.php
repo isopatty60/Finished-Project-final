@@ -69,13 +69,13 @@
                         <div class="card-content">
                             <div class="card-body">
 
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                {{-- <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>ชื่อ:</strong>
                                         <input type="text" name="name" value="{{ $invItemExpenses->name }}"
                                             class="form-control" placeholder="ชื่อ">
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>รายละเอียด:</strong>
@@ -83,13 +83,13 @@
                                             placeholder="รายละเอียด">{{ $invItemExpenses->detail }}</textarea>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                {{-- <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>ราคา:</strong>
                                         <input type="text" name="price" value="{{ $invItemExpenses->price }}"
                                             class="form-control" placeholder="ราคา">
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>วันที่:</strong>
