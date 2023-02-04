@@ -95,7 +95,6 @@
                 <thead style="background: #F5F5F5;">
                     <tr>
                         <th>ลำดับ</th>
-                        <th>รายการ</th>
                         <th>รายละเอียด</th>
                         <th>จำนวน(หน่วย)</th>
                         <th>ราคา</th>
@@ -112,7 +111,6 @@
                         @endphp
                         <tr>
                             <td>{{ ++$i }}</td>
-                            <td>{{ $value->name }}</td>
                             <td>{{ $value->detail }}</td>
                             <td>{{ $value->amount }}</td>
                             <td> {{ number_format($value->price, 2) }} </td>
@@ -121,11 +119,11 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th colspan="4">ภาษีมูลค่าเพิ่ม</th>
+                        <th colspan="3">ภาษีมูลค่าเพิ่ม</th>
                         <th>{{ number_format($sum_total_vat, 2) }} บาท</th>
                     </tr>
                     <tr>
-                        <th colspan="4">รวม</th>
+                        <th colspan="3">รวม</th>
                         <th>{{ number_format($sum_total, 2) }} บาท</th>
                     </tr>
                 </tfoot>

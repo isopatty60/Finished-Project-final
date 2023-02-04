@@ -93,8 +93,8 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>วันที่:</strong>
-                                        <input value="{{ $invItemExpenses->date }}" class="date form-control" name="date"
-                                            type="text" placeholder="วันที่">
+                                        <input value="{{ date('d-m-Y', strtotime($invItemExpenses->date)) }}"
+                                            class="date form-control" name="date" type="text" placeholder="Date">
                                     </div>
                                 </div>
                                 <script type="text/javascript">

@@ -81,11 +81,15 @@ class invItemsController extends Controller
     public function update(Request $request,  $id)
     {
         $inv = invItems::find($id);
-        // $inv->name = $request->input("name");
-        $inv->detail = $request->input("detail");
-        $inv->date = $request->input("date");
-        // $inv->price = $request->input("price");
+        $input = [
+            'detail' => $request->detail,
+            'note' => $request->note,
+            'date' => date('Y-m-d', strtotime($request->date)),
+            'detail_id' => $request->detail_id,
+        ];
+
         $input = $request->all();
+
         if ($request->file('image_product')) {
             $image = $request->file('image_product');
             $destinationPath = 'image_product/';

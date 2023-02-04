@@ -63,12 +63,12 @@
             <form action="{{ route('invReceiptDetails.store') }}" method="POST">
                 @csrf
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    {{-- <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>รายการ:</strong>
                             <input type="text" name="name" class="form-control" placeholder="โปรดใส่รายการ">
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>รายละเอียด:</strong>

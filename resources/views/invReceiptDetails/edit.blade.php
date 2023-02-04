@@ -55,13 +55,13 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="card-body">
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                {{-- <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Name:</strong>
                                         <input type="text" name="name" value="{{ $invReceiptDetails->name }}"
                                             class="form-control" placeholder="Name">
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">

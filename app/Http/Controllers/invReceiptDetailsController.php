@@ -31,7 +31,7 @@ class invReceiptDetailsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            // 'name' => 'required',
             'detail' => 'required',
             'date' => 'required',
             'price' => 'required',
@@ -39,7 +39,7 @@ class invReceiptDetailsController extends Controller
             'Receipt_lists_id' => 'required',
         ]);
         $data = [
-            'name' => $request->name,
+            // 'name' => $request->name,
             'detail' => $request->detail,
             'amount' => $request->amount,
             'price' => $request->price,
@@ -67,7 +67,7 @@ class invReceiptDetailsController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required',
+            // 'name' => 'required',
             'detail' => 'required',
             'date' => 'required',
             'price' => 'required',
@@ -76,7 +76,7 @@ class invReceiptDetailsController extends Controller
         ]);
 
         $data = [
-            'name' => $request->name,
+            // 'name' => $request->name,
             'detail' => $request->detail,
             'amount' => $request->amount,
             'price' => $request->price,
